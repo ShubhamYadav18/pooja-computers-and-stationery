@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <style>
-.contact-hero { background:linear-gradient(135deg,#e8f4fd 0%,#f0faf0 100%); padding:50px 0; text-align:center; }
+.contact-hero { background:linear-gradient(135deg,#e8f4fd 0%,#f0faf0 100%); padding:46px 0 32px; text-align:center; }
 .contact-info-block { margin-bottom:22px; }
 .contact-info-block h5 { color:var(--primary); font-size:0.95rem; margin-bottom:6px; display:flex; align-items:center; gap:6px; }
 .contact-info-block a  { color:var(--secondary); font-weight:600; }
@@ -29,6 +29,41 @@
     transition:border-color .25s ease;
 }
 .field-input:focus, .field-textarea:focus { outline:none; border-color:var(--secondary); background:#fff; }
+
+/* ── Mobile & Tablet Optimizations ── */
+@media (max-width: 768px) {
+    .contact-hero { padding: 24px 0 16px; }
+    .contact-hero h2 { font-size: 1.55rem; line-height: 1.25; margin-bottom: 6px; }
+    .contact-hero p { font-size: 0.88rem !important; }
+
+    .contact-flex-wrap {
+        gap: 18px !important;
+    }
+    .contact-card, .contact-form-box {
+        padding: 18px 14px !important;
+        border-radius: 14px !important;
+    }
+    .contact-map-frame {
+        height: 180px !important;
+        margin-bottom: 16px !important;
+    }
+    .contact-info-block {
+        margin-bottom: 16px !important;
+    }
+    .contact-info-block h5 {
+        font-size: 0.9rem !important;
+    }
+    .contact-info-block p, .contact-info-block a {
+        font-size: 0.84rem !important;
+    }
+    .field-group {
+        margin-bottom: 12px !important;
+    }
+    .field-input, .field-textarea {
+        padding: 9px 12px !important;
+        font-size: 0.88rem !important;
+    }
+}
 </style>
 </head>
 <body>
@@ -71,9 +106,19 @@
         </div>
     </section>
 
-    <section class="section" style="background:var(--white);">
+    <!-- Quick Mobile Contact Strip -->
+    <div class="container" style="margin-top:20px;margin-bottom:4px;">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px;">
+            <a href="tel:9820490779" class="btn btn-primary" style="padding:9px 10px;font-size:0.8rem;text-align:center;border-radius:10px;">&#128222; Call Dharmendra</a>
+            <a href="tel:9324290047" class="btn btn-primary" style="padding:9px 10px;font-size:0.8rem;text-align:center;border-radius:10px;background:#1565c0;">&#128222; Call Shubham</a>
+            <a href="https://wa.me/919820490779" class="btn btn-whatsapp" target="_blank" style="padding:9px 10px;font-size:0.8rem;text-align:center;border-radius:10px;">&#128172; WhatsApp Us</a>
+            <a href="https://maps.google.com/?q=Pooja+Computers+Andheri+East" target="_blank" class="btn btn-secondary" style="padding:9px 10px;font-size:0.8rem;text-align:center;border-radius:10px;">&#128205; Map Location</a>
+        </div>
+    </div>
+
+    <section class="section" style="background:var(--white);padding-top:28px;">
         <div class="container">
-            <div style="display:flex;flex-wrap:wrap;gap:40px;">
+            <div class="contact-flex-wrap" style="display:flex;flex-wrap:wrap;gap:40px;">
 
                 <!-- Contact Info -->
                 <div style="flex:1;min-width:280px;">
@@ -111,7 +156,7 @@
 
                 <!-- Map + Form -->
                 <div style="flex:1.5;min-width:280px;">
-                    <div style="width:100%;height:280px;border-radius:var(--radius-md);overflow:hidden;margin-bottom:24px;border:1px solid var(--border);">
+                    <div class="contact-map-frame" style="width:100%;height:280px;border-radius:var(--radius-md);overflow:hidden;margin-bottom:24px;border:1px solid var(--border);">
                         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3769.954204364491!2d72.8679!3d19.1145!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c83c27e8d797%3A0x1234567890abcdef!2sMIDC%20Andheri%20East%2C%20Mumbai%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1625123456789!5m2!1sen!2sin"
                             width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                     </div>

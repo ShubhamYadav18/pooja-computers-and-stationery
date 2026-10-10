@@ -10,12 +10,76 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <style>
-.bulk-hero { background:linear-gradient(135deg,#e3f0fb 0%,#e8f5e9 100%); padding:56px 0; text-align:center; }
+.bulk-hero { background:linear-gradient(135deg,#e3f0fb 0%,#e8f5e9 100%); padding:50px 0 36px; text-align:center; }
 .who-serve { background:var(--bg-section); padding:20px 24px; border-radius:var(--radius-md); margin-bottom:20px; border:1px solid var(--border); }
 .who-serve h4 { font-size:1.1rem; margin-bottom:10px; color:var(--text-dark); }
 .who-serve ul { list-style:disc; margin-left:20px; color:var(--text-mid); font-size:0.92rem; }
 .who-serve li { margin-bottom:6px; }
 .cta-buttons { display:flex; gap:14px; justify-content:center; flex-wrap:wrap; margin-top:16px; }
+.bulk-features-grid { display:grid; grid-template-columns:1fr; gap:18px; }
+
+/* ── Mobile & Tablet Optimizations ── */
+@media (max-width: 768px) {
+    .bulk-hero { padding: 26px 0 18px; }
+    .bulk-hero h2 { font-size: 1.55rem; line-height: 1.25; margin-bottom: 6px; }
+    .bulk-hero p { font-size: 0.88rem !important; }
+    .bulk-hero .hero-tagline { font-size: 0.72rem; margin-bottom: 6px; }
+
+    .who-serve { padding: 14px 16px; }
+    .who-serve ul {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4px 14px;
+        margin-left: 16px;
+        font-size: 0.82rem;
+    }
+
+    .bulk-features-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 10px !important;
+    }
+    .bulk-features-grid .highlight-card:last-child {
+        grid-column: span 2;
+    }
+    .highlight-card {
+        padding: 14px 10px !important;
+        border-radius: 12px !important;
+    }
+    .highlight-card .highlight-icon { font-size: 26px !important; margin-bottom: 6px !important; }
+    .highlight-card h4 { font-size: 0.9rem !important; margin-bottom: 4px !important; }
+    .highlight-card p { font-size: 0.75rem !important; line-height: 1.35 !important; }
+
+    .cta-box-bottom {
+        padding: 24px 16px !important;
+        border-radius: 14px !important;
+        margin-top: 24px !important;
+    }
+    .cta-box-bottom h3 { font-size: 1.25rem !important; }
+    .cta-box-bottom p { font-size: 0.85rem !important; margin-bottom: 16px !important; }
+    .cta-buttons {
+        flex-direction: column !important;
+        align-items: stretch !important;
+        max-width: 320px;
+        margin: 14px auto 0 !important;
+        gap: 8px !important;
+    }
+    .cta-buttons .btn {
+        width: 100%;
+        text-align: center;
+        padding: 10px 14px !important;
+        font-size: 0.84rem !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .who-serve ul {
+        grid-template-columns: 1fr;
+    }
+    .bulk-features-grid {
+        grid-template-columns: 1fr 1fr !important;
+        gap: 8px !important;
+    }
+}
 </style>
 </head>
 <body>
@@ -77,7 +141,7 @@
                     <p style="color:var(--text-mid);"><strong style="color:var(--text-dark);">Bulk Orders Accepted:</strong> Whether you need 50 files or 500 reams of paper, we have the stock and logistics to deliver.</p>
                 </div>
                 <div style="flex:1;min-width:280px;">
-                    <div class="highlights-grid" style="grid-template-columns:1fr;">
+                    <div class="highlights-grid bulk-features-grid">
                         <div class="highlight-card">
                             <span class="highlight-icon">&#127970;</span>
                             <h4>Corporate Supply</h4>
@@ -218,7 +282,7 @@
                 </div>
             </div>
 
-            <div class="text-center" style="margin-top:36px;background:var(--bg-section);padding:40px;border-radius:var(--radius-lg);border:1px solid var(--border);">
+            <div class="text-center cta-box-bottom" style="margin-top:36px;background:var(--bg-section);padding:40px;border-radius:var(--radius-lg);border:1px solid var(--border);">
                 <h3>Start Your Supply Today</h3>
                 <p style="color:var(--text-mid);margin-bottom:24px;">Call us for a quotation or to discuss your monthly requirements.</p>
                 <div class="cta-buttons">

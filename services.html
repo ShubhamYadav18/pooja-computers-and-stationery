@@ -10,8 +10,85 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <style>
-.services-hero { background:linear-gradient(135deg,#e3f0fb 0%,#fce4ec 100%); padding:52px 0; text-align:center; }
-.services-hero h2 { color:var(--text-dark); }
+.services-hero { background:linear-gradient(135deg,#e3f0fb 0%,#fce4ec 100%); padding:50px 0 36px; text-align:center; }
+.services-hero h2 { color:var(--text-dark); font-size: 2.2rem; }
+
+/* ── Mobile & Tablet Optimizations ── */
+@media (max-width: 768px) {
+    .services-hero { padding: 26px 0 18px; }
+    .services-hero h2 { font-size: 1.5rem; line-height: 1.25; margin-bottom: 6px; }
+    .services-hero p { font-size: 0.88rem !important; }
+    .services-hero .hero-tagline { font-size: 0.72rem; margin-bottom: 6px; }
+
+    /* Compact 2-column grid for document services */
+    .highlights-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 10px !important;
+        margin-top: 14px !important;
+    }
+    .highlight-card {
+        padding: 14px 10px !important;
+        border-radius: 12px !important;
+    }
+    .highlight-card .highlight-icon {
+        font-size: 28px !important;
+        margin-bottom: 8px !important;
+    }
+    .highlight-card h4 {
+        font-size: 0.9rem !important;
+        margin-bottom: 4px !important;
+    }
+    .highlight-card p {
+        font-size: 0.75rem !important;
+        line-height: 1.35 !important;
+        margin-bottom: 6px !important;
+    }
+
+    /* Streamlined Xerox Rental Banner */
+    .xerox-banner {
+        padding: 24px 16px !important;
+        border-radius: 14px !important;
+    }
+    .xerox-text h3 {
+        font-size: 1.3rem !important;
+        margin-bottom: 10px !important;
+    }
+    .xerox-text p {
+        font-size: 0.84rem !important;
+        line-height: 1.45 !important;
+        margin-bottom: 12px !important;
+    }
+    .xerox-text ul li {
+        font-size: 0.8rem !important;
+        margin-bottom: 5px !important;
+    }
+    .xerox-info-box {
+        margin-top: 16px !important;
+        padding: 16px 14px !important;
+        border-radius: 12px !important;
+    }
+    .xerox-info-box h4 {
+        font-size: 0.95rem !important;
+    }
+    .xerox-info-box p, .xerox-info-box ul li {
+        font-size: 0.78rem !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .highlights-grid {
+        gap: 8px !important;
+    }
+    .highlight-card {
+        padding: 12px 8px !important;
+    }
+    .highlight-card h4 {
+        font-size: 0.84rem !important;
+    }
+    .highlight-card p {
+        font-size: 0.72rem !important;
+    }
+}
 </style>
 </head>
 <body>
