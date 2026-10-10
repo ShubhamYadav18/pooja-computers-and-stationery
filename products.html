@@ -343,10 +343,198 @@
             box-shadow: 0 6px 18px rgba(25, 118, 210, 0.35);
         }
 
+        /* ── Search Input Styles ── */
+        .prod-search-box {
+            position: relative;
+            max-width: 520px;
+            margin: 0 auto 12px;
+            padding: 0 10px;
+        }
+        .prod-search-input {
+            width: 100%;
+            padding: 11px 40px 11px 44px;
+            border-radius: 40px;
+            border: 1.5px solid #cbd5e1;
+            font-size: 0.9rem;
+            outline: none;
+            background: #ffffff;
+            color: #0f172a;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+            transition: all 0.25s ease;
+        }
+        .prod-search-input:focus {
+            border-color: #1976d2;
+            box-shadow: 0 0 0 3px rgba(25, 118, 210, 0.15);
+        }
+        .prod-search-icon {
+            position: absolute;
+            left: 24px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #94a3b8;
+            font-size: 20px;
+            pointer-events: none;
+        }
+        .prod-search-clear {
+            position: absolute;
+            right: 22px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: #94a3b8;
+            font-size: 20px;
+            cursor: pointer;
+            display: none;
+            padding: 4px;
+        }
+
+        /* ── Responsive Tablet & Mobile Suite ── */
         @media (max-width: 768px) {
-            .cat-nav-wrapper { top: 68px; }
-            .products-grid { grid-template-columns: 1fr; gap: 16px; }
-            .cat-header { padding: 16px; }
+            .products-hero { padding: 32px 0 20px; }
+            .products-hero h2 { font-size: 1.65rem; }
+            .products-hero p { font-size: 0.9rem !important; }
+            .products-hero-badge { font-size: 0.74rem; padding: 4px 12px; margin-bottom: 10px; }
+
+            .cat-nav-wrapper {
+                top: 60px;
+                padding: 10px 0;
+            }
+            .cat-nav {
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                justify-content: flex-start;
+                padding: 2px 14px 6px;
+                gap: 8px;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none;
+            }
+            .cat-nav::-webkit-scrollbar { display: none; }
+            .cat-nav a {
+                white-space: nowrap;
+                flex-shrink: 0;
+                padding: 7px 14px;
+                font-size: 0.8rem;
+                gap: 6px;
+            }
+
+            /* 2-Column Compact Grid on Tablet & Mobile */
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+            }
+            .prod-card {
+                padding: 12px 10px;
+                border-radius: 12px;
+            }
+            .prod-card-top { margin-bottom: 8px; }
+            .prod-squircle-icon {
+                width: 36px;
+                height: 36px;
+                border-radius: 10px;
+            }
+            .prod-squircle-icon .material-icons-outlined { font-size: 20px; }
+            .prod-stock-badge { font-size: 0.65rem; padding: 2px 6px; }
+            .prod-card-body h4 {
+                font-size: 0.88rem;
+                line-height: 1.25;
+                margin-bottom: 4px;
+            }
+            .prod-card-body p {
+                font-size: 0.74rem;
+                line-height: 1.35;
+                margin-bottom: 6px;
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+            }
+            .prod-tags { display: none; }
+            .prod-card-footer {
+                padding-top: 8px;
+                flex-direction: column;
+                align-items: stretch;
+                gap: 5px;
+            }
+            .prod-price-text {
+                font-size: 0.7rem;
+                text-align: center;
+            }
+            .btn-card-enquire {
+                justify-content: center;
+                padding: 6px 10px;
+                font-size: 0.76rem;
+                border-radius: 6px;
+            }
+
+            /* Compact Category Headers */
+            .cat-section { padding: 22px 0 10px; }
+            .cat-header {
+                padding: 10px 14px;
+                margin-bottom: 12px;
+                border-radius: 10px;
+                gap: 8px;
+            }
+            .cat-header-left { gap: 10px; }
+            .cat-badge-avatar {
+                width: 34px;
+                height: 34px;
+                font-size: 1.15rem;
+                border-radius: 8px;
+            }
+            .cat-header-text h3 { font-size: 1.05rem; margin: 0; }
+            .cat-header-text p { display: none; }
+            .cat-tag-pill { font-size: 0.68rem; padding: 3px 8px; }
+
+            /* Compact CTA */
+            .products-cta {
+                padding: 24px 16px;
+                margin: 28px 0 16px;
+                border-radius: 14px;
+            }
+            .products-cta h3 { font-size: 1.2rem; margin-bottom: 6px; }
+            .products-cta p { font-size: 0.84rem; margin-bottom: 14px; }
+            .products-cta .btn-cta {
+                padding: 10px 18px;
+                font-size: 0.82rem;
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .products-hero { padding: 20px 0 14px; }
+            .products-hero h2 { font-size: 1.35rem; }
+            .products-hero-badge { font-size: 0.7rem; padding: 3px 10px; margin-bottom: 6px; }
+            .prod-search-input { padding: 9px 36px 9px 38px; font-size: 0.82rem; }
+            .prod-search-icon { left: 20px; font-size: 18px; }
+
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 8px;
+            }
+            .prod-card {
+                padding: 10px 8px;
+                border-radius: 10px;
+            }
+            .prod-card-body h4 {
+                font-size: 0.82rem;
+                line-height: 1.2;
+            }
+            .prod-card-body p {
+                font-size: 0.7rem;
+                line-height: 1.3;
+            }
+            .prod-squircle-icon {
+                width: 32px;
+                height: 32px;
+                border-radius: 8px;
+            }
+            .prod-squircle-icon .material-icons-outlined { font-size: 18px; }
+            .btn-card-enquire {
+                font-size: 0.72rem;
+                padding: 5px 6px;
+            }
         }
     </style>
 </head>
@@ -397,12 +585,18 @@
     <!-- Sticky Filter Navigation -->
     <div class="cat-nav-wrapper">
         <div class="container">
+            <div class="prod-search-box">
+                <span class="material-icons-outlined prod-search-icon">search</span>
+                <input type="text" id="prodSearchInput" class="prod-search-input" placeholder="Search paper, pens, toners, toys, files...">
+                <button id="prodSearchClear" class="prod-search-clear" aria-label="Clear Search">&times;</button>
+            </div>
             <nav class="cat-nav">
-                <a href="#office" class="active">&#128193; Office Supplies</a>
-                <a href="#school">&#127979; School &amp; Education</a>
-                <a href="#toys">&#129960; Toys &amp; Gifts</a>
-                <a href="#computer">&#128187; Computer &amp; Tech</a>
-                <a href="#housekeeping">&#129529; Housekeeping</a>
+                <a href="#all" class="active" data-cat="all">&#10024; All Products</a>
+                <a href="#office" data-cat="office">&#128193; Office</a>
+                <a href="#school" data-cat="school">&#127979; School</a>
+                <a href="#toys" data-cat="toys">&#129960; Toys &amp; Gifts</a>
+                <a href="#computer" data-cat="computer">&#128187; Tech</a>
+                <a href="#housekeeping" data-cat="housekeeping">&#129529; Housekeeping</a>
             </nav>
         </div>
     </div>
@@ -856,27 +1050,100 @@
     </div>
 
     <script>
-        document.querySelectorAll('.cat-nav a').forEach(link => {
-            link.addEventListener('click', function(e) {
-                document.querySelectorAll('.cat-nav a').forEach(a => a.classList.remove('active'));
+        const catButtons = document.querySelectorAll('.cat-nav a');
+        const catSections = document.querySelectorAll('.cat-section');
+        const searchInput = document.getElementById('prodSearchInput');
+        const searchClear = document.getElementById('prodSearchClear');
+        const allCards = document.querySelectorAll('.prod-card');
+
+        // Category Tab Switching & Scroll Management
+        catButtons.forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                catButtons.forEach(b => b.classList.remove('active'));
                 this.classList.add('active');
+
+                // If user was searching, clear search input
+                if (searchInput && searchInput.value.trim() !== '') {
+                    searchInput.value = '';
+                    searchClear.style.display = 'none';
+                    allCards.forEach(c => c.style.display = 'flex');
+                }
+
+                const targetCat = this.getAttribute('data-cat');
+                if (targetCat === 'all') {
+                    catSections.forEach(sec => sec.style.display = 'block');
+                    const navWrap = document.querySelector('.cat-nav-wrapper');
+                    const y = navWrap.getBoundingClientRect().top + window.pageYOffset - 70;
+                    window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
+                } else {
+                    catSections.forEach(sec => {
+                        if (sec.id === targetCat) {
+                            sec.style.display = 'block';
+                        } else {
+                            sec.style.display = 'none';
+                        }
+                    });
+                    const targetEl = document.getElementById(targetCat);
+                    if (targetEl) {
+                        const navWrap = document.querySelector('.cat-nav-wrapper');
+                        const y = targetEl.getBoundingClientRect().top + window.pageYOffset - (navWrap.offsetHeight + 70);
+                        window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
+                    }
+                }
             });
         });
-        const sections = document.querySelectorAll('.cat-section');
-        const navLinks = document.querySelectorAll('.cat-nav a');
-        const obs = new IntersectionObserver(entries => {
-            entries.forEach(e => {
-                if (e.isIntersecting) {
-                    navLinks.forEach(l => {
-                        l.classList.remove('active');
-                        if (l.getAttribute('href') === '#' + e.target.id) {
-                            l.classList.add('active');
-                        }
+
+        // Instant Live Search Filtering
+        if (searchInput) {
+            searchInput.addEventListener('input', function() {
+                const query = this.value.toLowerCase().trim();
+                if (query.length > 0) {
+                    searchClear.style.display = 'block';
+                    // Show all sections so cards can be found anywhere
+                    catSections.forEach(sec => sec.style.display = 'block');
+                    catButtons.forEach(b => b.classList.remove('active'));
+                    document.querySelector('.cat-nav a[data-cat="all"]').classList.add('active');
+
+                    let matchCount = 0;
+                    catSections.forEach(sec => {
+                        let secMatches = 0;
+                        const cardsInSec = sec.querySelectorAll('.prod-card');
+                        cardsInSec.forEach(card => {
+                            const title = card.querySelector('h4')?.textContent.toLowerCase() || '';
+                            const desc = card.querySelector('p')?.textContent.toLowerCase() || '';
+                            const tags = card.querySelector('.prod-tags')?.textContent.toLowerCase() || '';
+                            if (title.includes(query) || desc.includes(query) || tags.includes(query)) {
+                                card.style.display = 'flex';
+                                secMatches++;
+                                matchCount++;
+                            } else {
+                                card.style.display = 'none';
+                            }
+                        });
+                        // Hide empty category headers during search
+                        sec.style.display = (secMatches > 0) ? 'block' : 'none';
+                    });
+                } else {
+                    searchClear.style.display = 'none';
+                    catSections.forEach(sec => {
+                        sec.style.display = 'block';
+                        sec.querySelectorAll('.prod-card').forEach(c => c.style.display = 'flex');
                     });
                 }
             });
-        }, { threshold: 0.25 });
-        sections.forEach(s => obs.observe(s));
+
+            searchClear.addEventListener('click', function() {
+                searchInput.value = '';
+                searchClear.style.display = 'none';
+                catSections.forEach(sec => {
+                    sec.style.display = 'block';
+                    sec.querySelectorAll('.prod-card').forEach(c => c.style.display = 'flex');
+                });
+                catButtons.forEach(b => b.classList.remove('active'));
+                document.querySelector('.cat-nav a[data-cat="all"]').classList.add('active');
+            });
+        }
     </script>
 
     <footer>
