@@ -1,36 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us - Pooja Computers & Stationery</title>
-    <meta name="description"
-        content="Contact Pooja Computers & Stationery in Andheri East. Call, WhatsApp or visit us for all your office and school supply needs.">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>Contact Us | Pooja Computers & Stationery Andheri East Mumbai</title>
+    <meta name="description" content="Contact Pooja Computers & Stationery in Andheri East. Call, WhatsApp or visit us for all your office and school supply needs.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    <style>
+.contact-hero { background:linear-gradient(135deg,#e8f4fd 0%,#f0faf0 100%); padding:50px 0; text-align:center; }
+.contact-info-block { margin-bottom:22px; }
+.contact-info-block h5 { color:var(--primary); font-size:0.95rem; margin-bottom:6px; display:flex; align-items:center; gap:6px; }
+.contact-info-block a  { color:var(--secondary); font-weight:600; }
+.contact-info-block a:hover { color:var(--primary); }
+.contact-card { background:var(--bg-section); border-radius:var(--radius-lg); padding:30px; border:1px solid var(--border); }
+.contact-form-box { background:var(--white); border-radius:var(--radius-lg); padding:30px; border:1px solid var(--border); box-shadow:var(--shadow-sm); }
+.field-group { margin-bottom:16px; }
+.field-label { display:block; margin-bottom:6px; font-weight:600; font-size:0.88rem; color:var(--text-dark); }
+.field-input, .field-textarea {
+    width:100%; padding:10px 14px;
+    border:1.5px solid var(--border);
+    border-radius:var(--radius-sm);
+    font-family:var(--font);
+    font-size:0.92rem;
+    background:var(--bg-body);
+    transition:border-color .25s ease;
+}
+.field-input:focus, .field-textarea:focus { outline:none; border-color:var(--secondary); background:#fff; }
+</style>
 </head>
-
 <body>
     <div class="top-bar">
         <div class="container top-bar-content">
             <span class="religious-text">|| SHRI SIDDHIVINAYAK ||</span>
-            <div class="contact-mini"><span>📞 9820490779 - Dharmendra Yadav</span></div>
+            <div class="contact-mini"><span>&#128222; <a href="tel:9820490779">9820490779</a> (Dharmendra) &nbsp;|&nbsp; <a href="tel:9324290047">9324290047</a> (Shubham)</span></div>
         </div>
     </div>
 
     <header class="header-main">
         <div class="container navbar">
             <div class="logo">
-                <a href="index.html" style="display: flex; align-items: center; gap: 15px;">
-                    <img src="assets/images/logo.png" alt="Pooja Computers Logo" style="height: 80px; width: auto;">
+                <a href="index.html" style="display:flex;align-items:center;gap:14px;">
+                    <img src="assets/images/logo.png" alt="Pooja Computers Logo" style="height:76px;width:auto;">
                     <div>
-                        <h1>POOJA COMPUTERS & STATIONERY</h1>
-                        <p>Complete Office, School & Daily Essentials</p>
+                        <h1>POOJA COMPUTERS &amp; STATIONERY</h1>
+                        <p>Complete Office, School &amp; Daily Essentials</p>
                     </div>
                 </a>
             </div>
-            <div class="mobile-toggle">☰</div>
+            <div class="mobile-toggle">&#9776;</div>
             <nav>
                 <ul class="nav-links">
                     <li><a href="index.html">Home</a></li>
@@ -38,96 +58,95 @@
                     <li><a href="services.html">Services</a></li>
                     <li><a href="bulk-supply.html">Office Supply</a></li>
                     <li><a href="reviews.html">Reviews</a></li>
-                    <li><a href="contact.html" class="active">Contact</a></li>
+                    <li><a href="contact.html"class="active">Contact</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <section class="hero" style="padding: 40px 0;">
+    <section class="contact-hero">
         <div class="container text-center">
             <h2>Get In Touch</h2>
-            <p>Visit us, call us, or send an enquiry. We are here to help.</p>
+            <p style="color:var(--text-mid);">Visit us, call us, or send an enquiry. We are here to help.</p>
         </div>
     </section>
 
-    <section class="section">
+    <section class="section" style="background:var(--white);">
         <div class="container">
-            <div style="display: flex; flex-wrap: wrap; gap: 50px;">
+            <div style="display:flex;flex-wrap:wrap;gap:40px;">
 
                 <!-- Contact Info -->
-                <div style="flex: 1; min-width: 300px;">
-                    <h3>Contact Information</h3>
-                    <div style="margin-top: 30px;">
-                        <div style="margin-bottom: 25px;">
-                            <h5 style="color: var(--primary-color);">📍 Address</h5>
-                            <p><strong>Pooja Computers & Stationery</strong><br>
+                <div style="flex:1;min-width:280px;">
+                    <h3 style="margin-bottom:24px;">Contact Information</h3>
+                    <div class="contact-card">
+                        <div class="contact-info-block">
+                            <h5>&#128205; Address</h5>
+                            <p style="color:var(--text-mid);font-size:0.92rem;line-height:1.65;">
+                                <strong>Pooja Computers &amp; Stationery</strong><br>
                                 Ganeshwadi, Ground Floor, Shop No. 15,<br>
                                 Pocket No. 5, Building No. 2,<br>
                                 Behind Akruti Star Building,<br>
-                                MIDC Andheri East,<br>
-                                Mumbai – 400093</p>
-                            <a href="https://maps.google.com/?q=Pooja+Computers+Andheri+East" target="_blank"
-                                style="color: var(--secondary-color); font-weight: 600; margin-top: 10px; display: inline-block;">Get
-                                Directions →</a>
-                        </div>
-
-                        <div style="margin-bottom: 25px;">
-                            <h5 style="color: var(--primary-color);">📞 Phone Numbers</h5>
-
-                            <p style="margin-bottom: 5px;"><a href="tel:9820490779">9820490779</a> (Dharmendra Yadav)
+                                MIDC Andheri East, Mumbai &ndash; 400093
                             </p>
-
-                            <p><a href="tel:9136192518">91361 92518</a></p>
+                            <a href="https://maps.google.com/?q=Pooja+Computers+Andheri+East" target="_blank" style="display:inline-block;margin-top:10px;font-size:0.88rem;">Get Directions &rarr;</a>
                         </div>
-
-                        <div style="margin-bottom: 25px;">
-                            <h5 style="color: var(--primary-color);">✉️ Email</h5>
-                            <a href="mailto:poojacomputersstationery@gmail.com">poojacomputersstationery@gmail.com</a>
+                        <div class="contact-info-block">
+                            <h5>&#128222; Phone Numbers</h5>
+                            <p style="font-size:0.92rem;color:var(--text-mid);line-height:1.75;">
+                                <a href="tel:9820490779"><strong>9820490779</strong></a> &ndash; Dharmendra Yadav<br>
+                                <a href="tel:9324290047"><strong>9324290047</strong></a> &ndash; Shubham Yadav<br>
+                                <a href="tel:9136192518">91361 92518</a> (Store Line)
+                            </p>
                         </div>
-
-                        <div>
-                            <a href="https://wa.me/919820490779" class="btn btn-secondary"
-                                style="background: #25D366; width: 100%; text-align: center;">Chat on WhatsApp</a>
+                        <div class="contact-info-block">
+                            <h5>&#9993; Email</h5>
+                            <a href="mailto:poojacomputersstationery@gmail.com" style="font-size:0.88rem;">poojacomputersstationery@gmail.com</a>
+                        </div>
+                        <div style="display:flex;gap:10px;margin-top:10px;">
+                            <a href="https://wa.me/919820490779" class="btn btn-whatsapp" style="flex:1;text-align:center;font-size:0.82rem;padding:9px 6px;">&#128172; Dharmendra</a>
+                            <a href="https://wa.me/919324290047" class="btn btn-whatsapp" style="flex:1;text-align:center;font-size:0.82rem;padding:9px 6px;background:#128c7e;">&#128172; Shubham</a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Map & Form -->
-                <div style="flex: 1.5; min-width: 300px;">
-                    <!-- Embedded Map Placeholder (Using a generic map of Andheri East MIDC as requested by prompt "Google Maps embed") -->
-                    <div
-                        style="width: 100%; height: 300px; background: #eee; border-radius: 8px; overflow: hidden; margin-bottom: 30px;">
-                        <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3769.954204364491!2d72.8679!3d19.1145!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c83c27e8d797%3A0x1234567890abcdef!2sMIDC%20Andheri%20East%2C%20Mumbai%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1625123456789!5m2!1sen!2sin"
+                <!-- Map + Form -->
+                <div style="flex:1.5;min-width:280px;">
+                    <div style="width:100%;height:280px;border-radius:var(--radius-md);overflow:hidden;margin-bottom:24px;border:1px solid var(--border);">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3769.954204364491!2d72.8679!3d19.1145!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c83c27e8d797%3A0x1234567890abcdef!2sMIDC%20Andheri%20East%2C%20Mumbai%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1625123456789!5m2!1sen!2sin"
                             width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                     </div>
-
-                    <div style="background: var(--light-bg); padding: 30px; border-radius: 12px;">
-                        <h4 style="margin-bottom: 20px;">Send an Enquiry</h4>
+                    <div class="contact-form-box">
+                        <h4 style="margin-bottom:18px;color:var(--primary);">Send an Enquiry</h4>
+                        <div id="enquirySuccessNotice" style="display:none;background:#dcfce7;border:1.5px solid #86efac;color:#166534;padding:12px 16px;border-radius:var(--radius-sm);margin-bottom:18px;font-size:0.9rem;line-height:1.5;">
+                            &#9989; <strong>Thank you!</strong> Your enquiry has been received and saved in our system. Dharmendra Yadav will call or WhatsApp you shortly.
+                        </div>
                         <form id="enquiryForm">
-                            <div style="margin-bottom: 15px;">
-                                <label style="display: block; margin-bottom: 5px; font-weight: 500;">Name</label>
-                                <input type="text" id="name" required
-                                    style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px;">
+                            <div class="field-group">
+                                <label class="field-label">Name *</label>
+                                <input type="text" id="name" required class="field-input" placeholder="Your full name">
                             </div>
-                            <div style="margin-bottom: 15px;">
-                                <label style="display: block; margin-bottom: 5px; font-weight: 500;">Phone
-                                    Number</label>
-                                <input type="tel" id="phone" required
-                                    style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px;">
+                            <div class="field-group">
+                                <label class="field-label">Phone Number *</label>
+                                <input type="tel" id="phone" required class="field-input" placeholder="10-digit mobile number">
                             </div>
-                            <div style="margin-bottom: 15px;">
-                                <label style="display: block; margin-bottom: 5px; font-weight: 500;">Requirement</label>
-                                <textarea id="requirement" required rows="3"
-                                    style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px;"></textarea>
+                            <div class="field-group">
+                                <label class="field-label">Enquiry Category</label>
+                                <select id="serviceType" class="field-input" style="cursor:pointer;">
+                                    <option value="General Enquiry">General Stationery / Store Query</option>
+                                    <option value="Xerox Machine Rental">Xerox / Photocopier Machine on Rent</option>
+                                    <option value="Bulk Office Supply">Corporate / Bulk Office Supplies</option>
+                                    <option value="Housekeeping Supply">Corporate Housekeeping Materials</option>
+                                    <option value="Computer Supplies">Computer Accessories & Toner Cartridges</option>
+                                </select>
                             </div>
-                            <button type="submit" class="btn btn-primary" style="width: 100%;">Send Enquiry via
-                                WhatsApp</button>
+                            <div class="field-group">
+                                <label class="field-label">Requirement Details *</label>
+                                <textarea id="requirement" required rows="3" class="field-textarea" placeholder="Tell us what items or rental service you need..."></textarea>
+                            </div>
+                            <button type="submit" id="enquirySubmitBtn" class="btn btn-primary" style="width:100%;">Submit Enquiry &amp; Chat</button>
                         </form>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
@@ -136,16 +155,16 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col">
-                    <h4>Pooja Computers & Stationery</h4>
-                    <p>Complete Office, School & Daily Essentials Store providing quality products and services.</p>
+                    <h4>Pooja Computers &amp; Stationery</h4>
+                    <p>Complete Office, School &amp; Daily Essentials Store providing quality products and services in Andheri East, Mumbai.</p>
                 </div>
                 <div class="footer-col">
                     <h4>Quick Links</h4>
                     <ul class="footer-links">
                         <li><a href="index.html">Home</a></li>
-                        <li><a href="products.html">Products & Essentials</a></li>
-                        <li><a href="services.html">Services</a></li>
-                        <li><a href="bulk-supply.html">Office Supply</a></li>
+                        <li><a href="products.html">Products &amp; Essentials</a></li>
+                        <li><a href="services.html">Xerox Machine Rental</a></li>
+                        <li><a href="bulk-supply.html">Corporate Supply</a></li>
                         <li><a href="reviews.html">Reviews</a></li>
                         <li><a href="contact.html">Contact Us</a></li>
                     </ul>
@@ -153,29 +172,26 @@
                 <div class="footer-col">
                     <h4>Contact Us</h4>
                     <ul class="contact-info">
-                        <li>📍 Shop No. 15, PKT-5, Bldg No. 2, Behind Akruti Star, MIDC Andheri East, Mumbai-93</li>
-                        <li>📞 9820490779 (Dharmendra Yadav)</li>
-                        <li>✉️ poojacomputersstationery@gmail.com</li>
+                        <li>&#128205; Shop No. 15, PKT-5, Bldg No. 2, Behind Akruti Star, MIDC Andheri East, Mumbai&ndash;400093</li>
+                        <li>&#128222; <a href="tel:9820490779">9820490779</a> (Dharmendra Yadav)</li>
+                        <li>&#128222; <a href="tel:9324290047">9324290047</a> (Shubham Yadav)</li>
+                        <li>&#9993; poojacomputersstationery@gmail.com</li>
                     </ul>
                 </div>
             </div>
             <div class="bottom-bar">
-                <p>© 2026 Pooja Computers & Stationery. All Rights Reserved.</p>
+                <p>&copy; 2026 Pooja Computers &amp; Stationery. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
 
     <div class="mobile-bottom-nav">
         <div class="mobile-nav-grid">
-            <a href="tel:9820490779" class="mobile-nav-item" style="color: var(--primary-color);"><span>📞</span>
-                Call</a>
-            <a href="https://wa.me/919820490779" class="mobile-nav-item" style="color: #25D366;"><span>💬</span>
-                WhatsApp</a>
-            <a href="https://maps.google.com/?q=Pooja+Computers+Andheri+East" target="_blank" class="mobile-nav-item"
-                style="color: var(--secondary-color);"><span>📍</span> Map</a>
+            <a href="tel:9820490779" class="mobile-nav-item" style="color:var(--primary);"><span>&#128222;</span>Call</a>
+            <a href="https://wa.me/919820490779" class="mobile-nav-item" style="color:#25D366;"><span>&#128172;</span>WhatsApp</a>
+            <a href="https://maps.google.com/?q=Pooja+Computers+Andheri+East" target="_blank" class="mobile-nav-item" style="color:var(--secondary);"><span>&#128205;</span>Map</a>
         </div>
     </div>
     <script src="js/main.js"></script>
 </body>
-
 </html>

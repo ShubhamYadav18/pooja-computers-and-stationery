@@ -1,290 +1,150 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Customer Reviews - Pooja Computers & Stationery</title>
-    <meta name="description"
-        content="Read customer reviews for Pooja Computers & Stationery. See what our clients say about our office supplies and services.">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>Customer Reviews | Pooja Computers & Stationery Andheri East</title>
+    <meta name="description" content="Read customer reviews for Pooja Computers & Stationery. See what our clients say about our office supplies and xerox services.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <style>
-        .review-card {
-            background: #fff;
-            padding: 25px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-            margin-bottom: 20px;
-            border: 1px solid #eee;
-        }
-
-        .stars {
-            color: #FFC107;
-            margin-bottom: 10px;
-        }
-
-        .review-text {
-            font-style: italic;
-            color: #555;
-            margin-bottom: 15px;
-            line-height: 1.6;
-        }
-
-        .reviewer-name {
-            font-weight: 600;
-            color: var(--primary-color);
-        }
-
-        .google-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            background-color: #fff;
-            color: #555;
-            border: 1px solid #ddd;
-            padding: 10px 20px;
-            border-radius: 50px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .google-btn:hover {
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            border-color: #ccc;
-        }
-
-        .google-icon {
-            width: 20px;
-            height: 20px;
-        }
-
-        .reviews-intro {
-            font-size: 1.1rem;
-            max-width: 600px;
-            margin: 0 auto 30px auto;
-        }
-
-        .reviews-actions {
-            display: flex;
-            gap: 15px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .btn-icon {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .reviews-grid {
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        }
-
-        /* Review Form Styles */
-        .review-form-container {
-            max-width: 500px;
-            margin: 0 auto;
-            background: #fff;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-            text-align: left;
-        }
-
-        .form-title {
-            margin-bottom: 20px;
-            color: var(--primary-color);
-            text-align: center;
-        }
-
-        .form-group {
-            margin-bottom: 15px;
-        }
-
-        .form-label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: 500;
-        }
-
-        .form-input,
-        .form-select,
-        .form-textarea {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-        }
-
-        .btn-block {
-            width: 100%;
-        }
-    </style>
+.reviews-hero { background:linear-gradient(135deg,#fce4ec 0%,#e3f0fb 100%); padding:50px 0; text-align:center; }
+.rating-badge { display:inline-flex;align-items:center;gap:6px;background:var(--white);border:1.5px solid var(--border);border-radius:50px;padding:8px 20px;font-weight:700;font-size:1rem;color:var(--text-dark);box-shadow:var(--shadow-sm);margin:14px auto 0; }
+</style>
 </head>
-
 <body>
-
-    <!-- Top Bar -->
     <div class="top-bar">
         <div class="container top-bar-content">
             <span class="religious-text">|| SHRI SIDDHIVINAYAK ||</span>
-            <div class="contact-mini">
-                <span>📞 9820490779 - Dharmendra Yadav</span>
-            </div>
+            <div class="contact-mini"><span>&#128222; <a href="tel:9820490779">9820490779</a> (Dharmendra) &nbsp;|&nbsp; <a href="tel:9324290047">9324290047</a> (Shubham)</span></div>
         </div>
     </div>
 
-    <!-- Main Header -->
     <header class="header-main">
         <div class="container navbar">
             <div class="logo">
-                <a href="index.html" style="display: flex; align-items: center; gap: 15px;">
-                    <img src="assets/images/logo.png" alt="Pooja Computers Logo" style="height: 80px; width: auto;">
+                <a href="index.html" style="display:flex;align-items:center;gap:14px;">
+                    <img src="assets/images/logo.png" alt="Pooja Computers Logo" style="height:76px;width:auto;">
                     <div>
-                        <h1>POOJA COMPUTERS & STATIONERY</h1>
-                        <p>Complete Office, School & Daily Essentials</p>
+                        <h1>POOJA COMPUTERS &amp; STATIONERY</h1>
+                        <p>Complete Office, School &amp; Daily Essentials</p>
                     </div>
                 </a>
             </div>
-            <div class="mobile-toggle">☰</div>
+            <div class="mobile-toggle">&#9776;</div>
             <nav>
                 <ul class="nav-links">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="products.html">Products</a></li>
                     <li><a href="services.html">Services</a></li>
                     <li><a href="bulk-supply.html">Office Supply</a></li>
-                    <li><a href="reviews.html" class="active">Reviews</a></li>
+                    <li><a href="reviews.html"class="active">Reviews</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero" style="padding: 40px 0;">
+    <section class="reviews-hero">
         <div class="container text-center">
             <h2>Customer Reviews</h2>
-            <p>What our clients say about us.</p>
+            <p style="color:var(--text-mid);">What our clients say about us.</p>
+            <div class="rating-badge">&#11088; 4.8 &nbsp;&bull;&nbsp; 100+ Happy Customers</div>
         </div>
     </section>
 
-    <!-- Reviews Section -->
-    <section class="section">
+    <section class="section" style="background:var(--white);">
         <div class="container">
-            <div class="text-center" style="margin-bottom: 40px;">
-                <p class="reviews-intro">
-                    We value your feedback! Reviews help us improve our services and help others find the best office
-                    supplies.
-                </p>
-                <!-- Static Reviews Grid -->
-                <div class="highlights-grid reviews-grid" style="margin-bottom: 50px;">
+            <p class="reviews-intro text-center">We value your feedback! Reviews help us improve our services and help others find the best office supplies.</p>
 
-                    <!-- Review 1 -->
-                    <div class="review-card">
-                        <div class="stars">★★★★★</div>
-                        <p class="review-text">"Excellent service and quick delivery. I always order my office
-                            stationery from here. Highly recommended for corporate supplies."</p>
-                        <div class="reviewer-name">- Rajesh Kumar</div>
-                    </div>
-
-                    <!-- Review 2 -->
-                    <div class="review-card">
-                        <div class="stars">★★★★★</div>
-                        <p class="review-text">"One stop shop for all school projects. The staff is very helpful and
-                            they have everything my kids need."</p>
-                        <div class="reviewer-name">- Priya Sharma</div>
-                    </div>
-
-                    <!-- Review 3 -->
-                    <div class="review-card">
-                        <div class="stars">★★★★☆</div>
-                        <p class="review-text">"Good quality Xerox and printing services. Very reasonable rates compared
-                            to others in Andheri East."</p>
-                        <div class="reviewer-name">- Amit Patel</div>
-                    </div>
-
-                    <!-- Review 4 -->
-                    <div class="review-card">
-                        <div class="stars">★★★★★</div>
-                        <p class="review-text">"Very reliable for bulk orders. We have been purchasing our office
-                            housekeeping material from Pooja Computers for 2 years now."</p>
-                        <div class="reviewer-name">- Suresh Nair, Admin Manager</div>
-                    </div>
-
-                    <!-- Review 5 -->
-                    <div class="review-card">
-                        <div class="stars">★★★★★</div>
-                        <p class="review-text">"Best place for art supplies. I found all the specific sketching pencils
-                            and papers I needed which were not available nearby."</p>
-                        <div class="reviewer-name">- Neha Gupta</div>
-                    </div>
-
-                    <!-- Review 6 -->
-                    <div class="review-card">
-                        <div class="stars">★★★★★</div>
-                        <p class="review-text">"Very friendly behavior by the owner. They always guide properly about
-                            which product is best for my office requirements."</p>
-                        <div class="reviewer-name">- Rohan Mehta</div>
-                    </div>
-
-                    <!-- Review 7 -->
-                    <div class="review-card">
-                        <div class="stars">★★★★☆</div>
-                        <p class="review-text">"Prices are very reasonable compared to online. Plus you get to check the
-                            quality before buying. Good variety of pens."</p>
-                        <div class="reviewer-name">- Sneha Desai</div>
-                    </div>
-
+            <div class="highlights-grid reviews-grid" id="reviewsListContainer" style="margin-bottom:50px;">
+                <div class="review-card">
+                    <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <p class="review-text">&ldquo;Excellent service and quick delivery. I always order my office stationery from here. Highly recommended for corporate supplies.&rdquo;</p>
+                    <div class="reviewer-name">- Rajesh Kumar</div>
                 </div>
-
-                <!-- Review Form Section -->
-                <div class="review-form-container">
-                    <h4 class="form-title">Submit Your Review</h4>
-                    <form id="reviewForm">
-                        <div class="form-group">
-                            <label for="reviewName" class="form-label">Your Name</label>
-                            <input type="text" id="reviewName" required class="form-input">
-                        </div>
-                        <div class="form-group">
-                            <label for="reviewRating" class="form-label">Rating</label>
-                            <select id="reviewRating" required class="form-select">
-                                <option value="5">⭐⭐⭐⭐⭐ (Excellent)</option>
-                                <option value="4">⭐⭐⭐⭐ (Good)</option>
-                                <option value="3">⭐⭐⭐ (Average)</option>
-                                <option value="2">⭐⭐ (Poor)</option>
-                                <option value="1">⭐ (Very Poor)</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="reviewMessage" class="form-label">Your Review</label>
-                            <textarea id="reviewMessage" required rows="4" placeholder="Share your experience..."
-                                class="form-textarea"></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary btn-block">Submit Review via WhatsApp</button>
-                    </form>
+                <div class="review-card">
+                    <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <p class="review-text">&ldquo;One stop shop for all school projects. The staff is very helpful and they have everything my kids need.&rdquo;</p>
+                    <div class="reviewer-name">- Priya Sharma</div>
+                </div>
+                <div class="review-card">
+                    <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9734;</div>
+                    <p class="review-text">&ldquo;Good quality Xerox and printing services. Very reasonable rates compared to others in Andheri East.&rdquo;</p>
+                    <div class="reviewer-name">- Amit Patel</div>
+                </div>
+                <div class="review-card">
+                    <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <p class="review-text">&ldquo;Very reliable for bulk orders. We have been purchasing our office housekeeping material from Pooja Computers for 2 years now.&rdquo;</p>
+                    <div class="reviewer-name">- Suresh Nair, Admin Manager</div>
+                </div>
+                <div class="review-card">
+                    <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <p class="review-text">&ldquo;Best place for art supplies. Found all the specific sketching pencils and papers I needed which were not available nearby.&rdquo;</p>
+                    <div class="reviewer-name">- Neha Gupta</div>
+                </div>
+                <div class="review-card">
+                    <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <p class="review-text">&ldquo;Very friendly behavior by the owner. They always guide properly about which product is best for my office requirements.&rdquo;</p>
+                    <div class="reviewer-name">- Rohan Mehta</div>
+                </div>
+                <div class="review-card">
+                    <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9734;</div>
+                    <p class="review-text">&ldquo;Prices are very reasonable compared to online. Plus you get to check the quality before buying. Good variety of pens.&rdquo;</p>
+                    <div class="reviewer-name">- Sneha Desai</div>
                 </div>
             </div>
+
+            <div class="review-form-container">
+                <h4 class="form-title">Submit Your Review</h4>
+                <div id="reviewSuccessNotice" style="display:none;background:#dcfce7;border:1.5px solid #86efac;color:#166534;padding:12px 16px;border-radius:var(--radius-sm);margin-bottom:18px;font-size:0.9rem;line-height:1.5;">
+                    &#9989; <strong>Thank you!</strong> Your review has been saved in our database and published to the website.
+                </div>
+                <form id="reviewForm">
+                    <div class="form-group">
+                        <label for="reviewName" class="form-label">Your Name *</label>
+                        <input type="text" id="reviewName" required class="form-input" placeholder="e.g. Rahul Sharma">
+                    </div>
+                    <div class="form-group">
+                        <label for="reviewRole" class="form-label">Role or Company (Optional)</label>
+                        <input type="text" id="reviewRole" class="form-input" placeholder="e.g. Local Business Owner / Parent">
+                    </div>
+                    <div class="form-group">
+                        <label for="reviewRating" class="form-label">Rating *</label>
+                        <select id="reviewRating" required class="form-select">
+                            <option value="5">&#11088;&#11088;&#11088;&#11088;&#11088; Excellent (5/5)</option>
+                            <option value="4">&#11088;&#11088;&#11088;&#11088; Good (4/5)</option>
+                            <option value="3">&#11088;&#11088;&#11088; Average (3/5)</option>
+                            <option value="2">&#11088;&#11088; Poor (2/5)</option>
+                            <option value="1">&#11088; Very Poor (1/5)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="reviewMessage" class="form-label">Your Review *</label>
+                        <textarea id="reviewMessage" required rows="4" placeholder="Share your experience..." class="form-textarea"></textarea>
+                    </div>
+                    <button type="submit" id="reviewSubmitBtn" class="btn btn-primary btn-block">Submit Review</button>
+                </form>
+            </div>
+        </div>
     </section>
 
-    <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col">
-                    <h4>Pooja Computers & Stationery</h4>
-                    <p>Complete Office, School & Daily Essentials Store providing quality products and services.</p>
+                    <h4>Pooja Computers &amp; Stationery</h4>
+                    <p>Complete Office, School &amp; Daily Essentials Store providing quality products and services in Andheri East, Mumbai.</p>
                 </div>
                 <div class="footer-col">
                     <h4>Quick Links</h4>
                     <ul class="footer-links">
                         <li><a href="index.html">Home</a></li>
-                        <li><a href="products.html">Products & Essentials</a></li>
-                        <li><a href="services.html">Services</a></li>
-                        <li><a href="bulk-supply.html">Office Supply</a></li>
+                        <li><a href="products.html">Products &amp; Essentials</a></li>
+                        <li><a href="services.html">Xerox Machine Rental</a></li>
+                        <li><a href="bulk-supply.html">Corporate Supply</a></li>
                         <li><a href="reviews.html">Reviews</a></li>
                         <li><a href="contact.html">Contact Us</a></li>
                     </ul>
@@ -292,35 +152,26 @@
                 <div class="footer-col">
                     <h4>Contact Us</h4>
                     <ul class="contact-info">
-                        <li>📍 Shop No. 15, PKT-5, Bldg No. 2, Behind Akruti Star, MIDC Andheri East, Mumbai-93</li>
-                        <li>📞 9820490779 (Dharmendra Yadav)</li>
-                        <li>✉️ poojacomputersstationery@gmail.com</li>
+                        <li>&#128205; Shop No. 15, PKT-5, Bldg No. 2, Behind Akruti Star, MIDC Andheri East, Mumbai&ndash;400093</li>
+                        <li>&#128222; <a href="tel:9820490779">9820490779</a> (Dharmendra Yadav)</li>
+                        <li>&#128222; <a href="tel:9324290047">9324290047</a> (Shubham Yadav)</li>
+                        <li>&#9993; poojacomputersstationery@gmail.com</li>
                     </ul>
                 </div>
             </div>
             <div class="bottom-bar">
-                <p>© 2026 Pooja Computers & Stationery. All Rights Reserved.</p>
+                <p>&copy; 2026 Pooja Computers &amp; Stationery. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
 
-    <!-- Mobile Bottom Nav -->
     <div class="mobile-bottom-nav">
         <div class="mobile-nav-grid">
-            <a href="tel:9820490779" class="mobile-nav-item" style="color: var(--primary-color);">
-                <span>📞</span> Call
-            </a>
-            <a href="https://wa.me/919820490779" class="mobile-nav-item" style="color: #25D366;">
-                <span>💬</span> WhatsApp
-            </a>
-            <a href="https://maps.google.com/?q=Pooja+Computers+Andheri+East" target="_blank" rel="noopener"
-                class="mobile-nav-item" style="color: var(--secondary-color);">
-                <span>📍</span> Map
-            </a>
+            <a href="tel:9820490779" class="mobile-nav-item" style="color:var(--primary);"><span>&#128222;</span>Call</a>
+            <a href="https://wa.me/919820490779" class="mobile-nav-item" style="color:#25D366;"><span>&#128172;</span>WhatsApp</a>
+            <a href="https://maps.google.com/?q=Pooja+Computers+Andheri+East" target="_blank" class="mobile-nav-item" style="color:var(--secondary);"><span>&#128205;</span>Map</a>
         </div>
     </div>
-
     <script src="js/main.js"></script>
 </body>
-
 </html>

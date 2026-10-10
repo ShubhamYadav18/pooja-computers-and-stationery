@@ -1,37 +1,375 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Products - Pooja Computers & Stationery</title>
-    <meta name="description"
-        content="Explore our wide range of office supplies, school stationery, toys, daily essentials, and housekeeping products.">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>Products &amp; Essentials | Office, School &amp; Daily Supplies | Pooja Computers</title>
+    <meta name="description" content="Explore office supplies, school stationery, computer accessories, toys and housekeeping products at Pooja Computers, Andheri East.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
-</head>
+    <style>
+        /* ── Modern Premium Product Page Styles ── */
+        .products-hero {
+            background: linear-gradient(135deg, #f0f7ff 0%, #fdfbf7 50%, #f1f5f9 100%);
+            padding: 56px 0 40px;
+            text-align: center;
+            border-bottom: 1px solid var(--border);
+        }
 
+        .products-hero h2 {
+            font-size: 2.1rem;
+            font-weight: 800;
+            color: #0f172a;
+            margin-bottom: 8px;
+        }
+
+        .products-hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: #ffffff;
+            border: 1px solid #cbd5e1;
+            color: #1e3a8a;
+            border-radius: 30px;
+            padding: 5px 16px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            margin-bottom: 14px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+        }
+
+        /* ── Floating Category Pill Bar ── */
+        .cat-nav-wrapper {
+            position: sticky;
+            top: 76px;
+            z-index: 50;
+            background: rgba(248, 250, 252, 0.95);
+            backdrop-filter: blur(8px);
+            padding: 14px 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .cat-nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .cat-nav a {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 9px 20px;
+            border-radius: 40px;
+            font-size: 0.88rem;
+            font-weight: 600;
+            background: #ffffff;
+            color: #475569;
+            border: 1px solid #cbd5e1;
+            transition: all 0.25s ease;
+            text-decoration: none;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+        }
+
+        .cat-nav a:hover {
+            color: #0f172a;
+            border-color: #94a3b8;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+        }
+
+        .cat-nav a.active {
+            background: #1976d2;
+            color: #ffffff;
+            border-color: #1976d2;
+            box-shadow: 0 4px 12px rgba(25, 118, 210, 0.25);
+            transform: translateY(-2px);
+        }
+
+        /* ── Section & Category Header ── */
+        .cat-section {
+            padding: 44px 0 20px;
+        }
+
+        .cat-header {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 14px;
+            padding: 18px 24px;
+            margin-bottom: 26px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 14px;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+        }
+
+        .cat-header-left {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .cat-badge-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .cat-header-office .cat-badge-avatar { background: #eff6ff; color: #1d4ed8; }
+        .cat-header-school .cat-badge-avatar { background: #fff1f2; color: #e11d48; }
+        .cat-header-toys .cat-badge-avatar { background: #fffbeb; color: #d97706; }
+        .cat-header-computer .cat-badge-avatar { background: #f0fdf4; color: #16a34a; }
+        .cat-header-hk .cat-badge-avatar { background: #f8fafc; color: #475569; }
+
+        .cat-header-text h3 {
+            color: #0f172a;
+            font-size: 1.22rem;
+            font-weight: 700;
+            margin: 0 0 4px;
+        }
+
+        .cat-header-text p {
+            color: #64748b;
+            font-size: 0.86rem;
+            margin: 0;
+        }
+
+        .cat-tag-pill {
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: #1e40af;
+            background: #eff6ff;
+            border: 1px solid #bfdbfe;
+            padding: 5px 12px;
+            border-radius: 20px;
+        }
+
+        /* ── Modern Product Cards Grid ── */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 22px;
+        }
+
+        .prod-card {
+            background: #ffffff;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+            padding: 22px;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+        }
+
+        .prod-card:hover {
+            transform: translateY(-6px);
+            border-color: #cbd5e1;
+            box-shadow: 0 14px 28px -4px rgba(0,0,0,0.08);
+        }
+
+        /* Clean Squircle Icon Badge */
+        .prod-card-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 16px;
+        }
+
+        .prod-squircle-icon {
+            width: 54px;
+            height: 54px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease;
+        }
+
+        .prod-card:hover .prod-squircle-icon {
+            transform: scale(1.08);
+        }
+
+        .prod-squircle-icon .material-icons-outlined {
+            font-size: 28px;
+        }
+
+        /* Soft, balanced accent colors for icon squircles */
+        .icon-office { background: #eff6ff; color: #2563eb; border: 1px solid #dbeafe; }
+        .icon-school { background: #fff1f2; color: #e11d48; border: 1px solid #ffe4e6; }
+        .icon-toys   { background: #fffbeb; color: #d97706; border: 1px solid #fef3c7; }
+        .icon-tech   { background: #f0fdf4; color: #16a34a; border: 1px solid #dcfce7; }
+        .icon-hk     { background: #f8fafc; color: #475569; border: 1px solid #e2e8f0; }
+
+        .prod-stock-badge {
+            font-size: 0.72rem;
+            font-weight: 600;
+            color: #16a34a;
+            background: #f0fdf4;
+            border: 1px solid #dcfce7;
+            padding: 3px 8px;
+            border-radius: 12px;
+        }
+
+        .prod-card-body {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .prod-card-body h4 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin: 0 0 8px;
+            line-height: 1.35;
+        }
+
+        .prod-card-body p {
+            font-size: 0.85rem;
+            color: #64748b;
+            line-height: 1.5;
+            margin: 0 0 14px;
+            flex: 1;
+        }
+
+        .prod-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 18px;
+        }
+
+        .prod-tag {
+            font-size: 0.72rem;
+            font-weight: 500;
+            padding: 3px 9px;
+            border-radius: 6px;
+            background: #f8fafc;
+            color: #475569;
+            border: 1px solid #e2e8f0;
+        }
+
+        /* Action Footer */
+        .prod-card-footer {
+            margin-top: auto;
+            padding-top: 14px;
+            border-top: 1px solid #f1f5f9;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .prod-price-text {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #64748b;
+        }
+
+        .btn-card-enquire {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: #f8fafc;
+            color: #0f172a;
+            border: 1px solid #cbd5e1;
+            padding: 7px 14px;
+            border-radius: 8px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .btn-card-enquire:hover {
+            background: #1976d2;
+            color: #ffffff;
+            border-color: #1976d2;
+            box-shadow: 0 2px 8px rgba(25, 118, 210, 0.25);
+        }
+
+        /* ── Bottom Callout CTA ── */
+        .products-cta {
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+            border: 1.5px solid #e2e8f0;
+            border-radius: 18px;
+            padding: 42px 32px;
+            text-align: center;
+            margin: 54px 0 24px;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.03);
+        }
+
+        .products-cta h3 {
+            color: #0f172a;
+            font-size: 1.5rem;
+            margin-bottom: 8px;
+        }
+
+        .products-cta p {
+            color: #64748b;
+            margin-bottom: 22px;
+            font-size: 0.95rem;
+        }
+
+        .products-cta .btn-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #1976d2;
+            color: #ffffff;
+            font-weight: 700;
+            padding: 12px 32px;
+            border-radius: 50px;
+            font-size: 0.92rem;
+            box-shadow: 0 4px 14px rgba(25, 118, 210, 0.25);
+            transition: all 0.25s ease;
+            text-decoration: none;
+        }
+
+        .products-cta .btn-cta:hover {
+            background: #1565c0;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(25, 118, 210, 0.35);
+        }
+
+        @media (max-width: 768px) {
+            .cat-nav-wrapper { top: 68px; }
+            .products-grid { grid-template-columns: 1fr; gap: 16px; }
+            .cat-header { padding: 16px; }
+        }
+    </style>
+</head>
 <body>
     <div class="top-bar">
         <div class="container top-bar-content">
             <span class="religious-text">|| SHRI SIDDHIVINAYAK ||</span>
-            <div class="contact-mini"><span>📞 022 28200477</span></div>
+            <div class="contact-mini"><span>&#128222; <a href="tel:9820490779">9820490779</a> (Dharmendra) &nbsp;|&nbsp; <a href="tel:9324290047">9324290047</a> (Shubham)</span></div>
         </div>
     </div>
 
     <header class="header-main">
         <div class="container navbar">
             <div class="logo">
-                <a href="index.html" style="display: flex; align-items: center; gap: 15px;">
-                    <img src="assets/images/logo.png" alt="Pooja Computers Logo" style="height: 80px; width: auto;">
+                <a href="index.html" style="display:flex;align-items:center;gap:14px;">
+                    <img src="assets/images/logo.png" alt="Pooja Computers Logo" style="height:76px;width:auto;">
                     <div>
-                        <h1>POOJA COMPUTERS & STATIONERY</h1>
-                        <p>Complete Office, School & Daily Essentials</p>
+                        <h1>POOJA COMPUTERS &amp; STATIONERY</h1>
+                        <p>Complete Office, School &amp; Daily Essentials</p>
                     </div>
                 </a>
             </div>
-            <div class="mobile-toggle">☰</div>
+            <div class="mobile-toggle">&#9776;</div>
             <nav>
                 <ul class="nav-links">
                     <li><a href="index.html">Home</a></li>
@@ -45,217 +383,515 @@
         </div>
     </header>
 
-    <section class="hero" style="padding: 40px 0;">
-        <div class="container text-center">
-            <h2>Our Products & Essentials</h2>
-            <p>Everything you need for your office, school, and home.</p>
-        </div>
-    </section>
-
-    <section class="section">
+    <!-- Hero Section -->
+    <section class="products-hero">
         <div class="container">
-
-            <!-- Office Supplies -->
-            <div class="category-block" style="margin-bottom: 60px;">
-                <h3 style="border-bottom: 2px solid var(--primary-color); display: inline-block; margin-bottom: 30px;">
-                    📁 Office & Corporate Supplies</h3>
-                <div class="highlights-grid">
-                    <div class="highlight-card product-card">
-                        <div class="img-placeholder img-placeholder-blue"
-                            style="height: 120px; margin-bottom: 15px; border-radius: 8px;">
-                            <span class="material-icons-outlined" style="font-size: 48px;">description</span>
-                        </div>
-                        <h4>Paper Products</h4>
-                        <p>Copier paper (A4/A3), Registers, Notepads, Sticky notes, Envelopes.</p>
-                    </div>
-                    <div class="highlight-card product-card">
-                        <div class="img-placeholder img-placeholder-blue"
-                            style="height: 120px; margin-bottom: 15px; border-radius: 8px;">
-                            <span class="material-icons-outlined" style="font-size: 48px;">folder_open</span>
-                        </div>
-                        <h4>Filing & Storage</h4>
-                        <p>Box files, Cobra files, Clear bags, Folders, Card holders.</p>
-                    </div>
-                    <div class="highlight-card product-card">
-                        <div class="img-placeholder img-placeholder-blue"
-                            style="height: 120px; margin-bottom: 15px; border-radius: 8px;">
-                            <span class="material-icons-outlined" style="font-size: 48px;">edit</span>
-                        </div>
-                        <h4>Desk Essentials</h4>
-                        <p>Pens, Markers, Highlighters, Staplers, Punching machines, Calculators.</p>
-                    </div>
-                    <div class="highlight-card product-card">
-                        <div class="img-placeholder img-placeholder-blue"
-                            style="height: 120px; margin-bottom: 15px; border-radius: 8px;">
-                            <span class="material-icons-outlined" style="font-size: 48px;">print</span>
-                        </div>
-                        <h4>Printer Consumables</h4>
-                        <p>Ink cartridges, Toners, Ribbons for all major printer brands.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- School Items -->
-            <div class="category-block" style="margin-bottom: 60px;">
-                <h3
-                    style="border-bottom: 2px solid var(--secondary-color); display: inline-block; margin-bottom: 30px;">
-                    🏫 School & Student Items</h3>
-                <div class="highlights-grid">
-                    <div class="highlight-card product-card">
-                        <div class="img-placeholder img-placeholder-red"
-                            style="height: 120px; margin-bottom: 15px; border-radius: 8px;">
-                            <span class="material-icons-outlined" style="font-size: 48px;">menu_book</span>
-                        </div>
-                        <h4>Stationery</h4>
-                        <p>Notebooks, Pencils, Erasers, Geometry boxes, School bags.</p>
-                    </div>
-                    <div class="highlight-card product-card">
-                        <div class="img-placeholder img-placeholder-red"
-                            style="height: 120px; margin-bottom: 15px; border-radius: 8px;">
-                            <span class="material-icons-outlined" style="font-size: 48px;">palette</span>
-                        </div>
-                        <h4>Art & Craft</h4>
-                        <p>Colors, Paints, Brushes, Craft paper, Clay, Decor items.</p>
-                    </div>
-                    <div class="highlight-card product-card">
-                        <div class="img-placeholder img-placeholder-red"
-                            style="height: 120px; margin-bottom: 15px; border-radius: 8px;">
-                            <span class="material-icons-outlined" style="font-size: 48px;">science</span>
-                        </div>
-                        <h4>Project Materials</h4>
-                        <p>Thermocol, Charts, Models, project files and accessories.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Toys & Essentials -->
-            <div class="category-block" style="margin-bottom: 60px;">
-                <h3 style="border-bottom: 2px solid var(--accent-color); display: inline-block; margin-bottom: 30px;">🧸
-                    Toys & Daily Essentials</h3>
-                <div class="highlights-grid">
-                    <div class="highlight-card product-card">
-                        <div class="img-placeholder img-placeholder-gold"
-                            style="height: 120px; margin-bottom: 15px; border-radius: 8px;">
-                            <span class="material-icons-outlined" style="font-size: 48px;">toys</span>
-                        </div>
-                        <h4>Kids Corner</h4>
-                        <p>Educational toys, Board games, Puzzles, Soft toys (Teddy bears).</p>
-                    </div>
-                    <div class="highlight-card product-card">
-                        <div class="img-placeholder img-placeholder-gold"
-                            style="height: 120px; margin-bottom: 15px; border-radius: 8px;">
-                            <span class="material-icons-outlined" style="font-size: 48px;">card_giftcard</span>
-                        </div>
-                        <h4>Gifting</h4>
-                        <p>Small gift items, Keychains, Mugs, Fancy stationery sets.</p>
-                    </div>
-                    <div class="highlight-card product-card">
-                        <div class="img-placeholder img-placeholder-gold"
-                            style="height: 120px; margin-bottom: 15px; border-radius: 8px;">
-                            <span class="material-icons-outlined" style="font-size: 48px;">home_repair_service</span>
-                        </div>
-                        <h4>Daily Utility</h4>
-                        <p>Batteries, Tape, Scissors, Glue, Seasonal items.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Computer Accessories -->
-            <div class="category-block" style="margin-bottom: 60px;">
-                <h3 style="border-bottom: 2px solid var(--primary-color); display: inline-block; margin-bottom: 30px;">
-                    💻 Computer & Accessories</h3>
-                <div class="highlights-grid">
-                    <div class="highlight-card product-card">
-                        <div class="img-placeholder img-placeholder-blue"
-                            style="height: 120px; margin-bottom: 15px; border-radius: 8px;">
-                            <span class="material-icons-outlined" style="font-size: 48px;">mouse</span>
-                        </div>
-                        <h4>Peripherals</h4>
-                        <p>Mouse (Wired/Wireless), Keyboards, Mousepads.</p>
-                    </div>
-                    <div class="highlight-card product-card">
-                        <div class="img-placeholder img-placeholder-blue"
-                            style="height: 120px; margin-bottom: 15px; border-radius: 8px;">
-                            <span class="material-icons-outlined" style="font-size: 48px;">usb</span>
-                        </div>
-                        <h4>Storage</h4>
-                        <p>Pendrives, SD Cards, External Hard Disks.</p>
-                    </div>
-                    <div class="highlight-card product-card">
-                        <div class="img-placeholder img-placeholder-blue"
-                            style="height: 120px; margin-bottom: 15px; border-radius: 8px;">
-                            <span class="material-icons-outlined" style="font-size: 48px;">cable</span>
-                        </div>
-                        <h4>Cables & Connectors</h4>
-                        <p>USB cables, HDMI cables, LAN cables, Chargers.</p>
-                    </div>
-                    <div class="highlight-card product-card">
-                        <div class="img-placeholder img-placeholder-blue"
-                            style="height: 120px; margin-bottom: 15px; border-radius: 8px;">
-                            <span class="material-icons-outlined" style="font-size: 48px;">laptop_chromebook</span>
-                        </div>
-                        <h4>Laptops</h4>
-                        <p>Laptops available on display/enquiry basis.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Housekeeping -->
-            <div class="category-block">
-                <h3 style="border-bottom: 2px solid var(--text-dark); display: inline-block; margin-bottom: 30px;">🧼
-                    Housekeeping & Utility</h3>
-                <div class="highlights-grid">
-                    <div class="highlight-card product-card">
-                        <div class="img-placeholder"
-                            style="height: 120px; margin-bottom: 15px; border-radius: 8px; color: var(--text-dark);">
-                            <span class="material-icons-outlined" style="font-size: 48px;">cleaning_services</span>
-                        </div>
-                        <h4>Cleaning</h4>
-                        <p>Floor cleaners, Glass cleaners, Dusters, Mops.</p>
-                    </div>
-                    <div class="highlight-card product-card">
-                        <div class="img-placeholder"
-                            style="height: 120px; margin-bottom: 15px; border-radius: 8px; color: var(--text-dark);">
-                            <span class="material-icons-outlined" style="font-size: 48px;">coffee</span>
-                        </div>
-                        <h4>Pantry</h4>
-                        <p>Tea/Coffee cups, Tissue papers, Paper napkins, Disposables.</p>
-                    </div>
-                    <div class="highlight-card product-card">
-                        <div class="img-placeholder"
-                            style="height: 120px; margin-bottom: 15px; border-radius: 8px; color: var(--text-dark);">
-                            <span class="material-icons-outlined" style="font-size: 48px;">build</span>
-                        </div>
-                        <h4>Maintenance</h4>
-                        <p>Basic tools, Bulbs, Extension cords.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Call to Action -->
-            <div class="text-center"
-                style="margin-top: 60px; background: var(--light-bg); padding: 40px; border-radius: 12px;">
-                <h3>Didn't find what you're looking for?</h3>
-                <p style="margin-bottom: 20px;">We arrange special items on request. Just give us a call!</p>
-                <a href="contact.html" class="btn btn-primary">Contact Us</a>
-            </div>
-
+            <div class="products-hero-badge">&#128722; Product Catalog &amp; Supplies</div>
+            <h2>Office, School &amp; Daily Essentials</h2>
+            <p style="color:#64748b;font-size:0.98rem;max-width:620px;margin:0 auto;">
+                Wholesale &amp; retail supply with quick doorstep delivery across MIDC Andheri East &amp; Mumbai.
+            </p>
         </div>
     </section>
+
+    <!-- Sticky Filter Navigation -->
+    <div class="cat-nav-wrapper">
+        <div class="container">
+            <nav class="cat-nav">
+                <a href="#office" class="active">&#128193; Office Supplies</a>
+                <a href="#school">&#127979; School &amp; Education</a>
+                <a href="#toys">&#129960; Toys &amp; Gifts</a>
+                <a href="#computer">&#128187; Computer &amp; Tech</a>
+                <a href="#housekeeping">&#129529; Housekeeping</a>
+            </nav>
+        </div>
+    </div>
+
+    <div class="container">
+
+        <!-- 1. Office Supplies -->
+        <section class="cat-section" id="office">
+            <div class="cat-header cat-header-office">
+                <div class="cat-header-left">
+                    <div class="cat-badge-avatar">&#128193;</div>
+                    <div class="cat-header-text">
+                        <h3>Office &amp; Corporate Supplies</h3>
+                        <p>Paper reams, filing, registers, toners and desk accessories</p>
+                    </div>
+                </div>
+                <span class="cat-tag-pill">Bulk &amp; Corporate Rates</span>
+            </div>
+            <div class="products-grid">
+                <div class="prod-card">
+                    <div class="prod-card-top">
+                        <div class="prod-squircle-icon icon-office"><span class="material-icons-outlined">description</span></div>
+                        <span class="prod-stock-badge">In Stock</span>
+                    </div>
+                    <div class="prod-card-body">
+                        <h4>Copier &amp; Printing Paper</h4>
+                        <p>JK Copier, Bilt Matrix, B2B paper in 70, 75 &amp; 80 GSM. Available in A4, FS, A3 sizes.</p>
+                        <div class="prod-tags">
+                            <span class="prod-tag">JK Copier</span>
+                            <span class="prod-tag">A4 / A3 / FS</span>
+                            <span class="prod-tag">Bulk Cartons</span>
+                        </div>
+                    </div>
+                    <div class="prod-card-footer">
+                        <span class="prod-price-text">Wholesale Rates</span>
+                        <a href="https://wa.me/919820490779?text=Hello%20Dharmendra%20ji,%20I%20need%20a%20quote%20for%20Copier%20Paper" class="btn-card-enquire" target="_blank">&#128172; Enquire</a>
+                    </div>
+                </div>
+
+                <div class="prod-card">
+                    <div class="prod-card-top">
+                        <div class="prod-squircle-icon icon-office"><span class="material-icons-outlined">folder_open</span></div>
+                        <span class="prod-stock-badge">In Stock</span>
+                    </div>
+                    <div class="prod-card-body">
+                        <h4>Files &amp; Folders</h4>
+                        <p>Box files, ring binders, spring files, cobra files, clear bags &amp; display books.</p>
+                        <div class="prod-tags">
+                            <span class="prod-tag">Box Files</span>
+                            <span class="prod-tag">Ring Binders</span>
+                            <span class="prod-tag">L-Folders</span>
+                        </div>
+                    </div>
+                    <div class="prod-card-footer">
+                        <span class="prod-price-text">Best Rates</span>
+                        <a href="https://wa.me/919820490779?text=Hello%20Dharmendra%20ji,%20I%20need%20a%20quote%20for%20Files%20and%20Folders" class="btn-card-enquire" target="_blank">&#128172; Enquire</a>
+                    </div>
+                </div>
+
+                <div class="prod-card">
+                    <div class="prod-card-top">
+                        <div class="prod-squircle-icon icon-office"><span class="material-icons-outlined">edit</span></div>
+                        <span class="prod-stock-badge">In Stock</span>
+                    </div>
+                    <div class="prod-card-body">
+                        <h4>Writing &amp; Correction</h4>
+                        <p>Ball pens, gel pens, permanent markers, highlighters, white-out &amp; correction tapes.</p>
+                        <div class="prod-tags">
+                            <span class="prod-tag">Cello</span>
+                            <span class="prod-tag">Reynolds</span>
+                            <span class="prod-tag">Faber-Castell</span>
+                        </div>
+                    </div>
+                    <div class="prod-card-footer">
+                        <span class="prod-price-text">Retail &amp; Bulk</span>
+                        <a href="https://wa.me/919820490779?text=Hello%20Dharmendra%20ji,%20I%20need%20Writing%20and%20Desk%20Pens" class="btn-card-enquire" target="_blank">&#128172; Enquire</a>
+                    </div>
+                </div>
+
+                <div class="prod-card">
+                    <div class="prod-card-top">
+                        <div class="prod-squircle-icon icon-office"><span class="material-icons-outlined">dashboard</span></div>
+                        <span class="prod-stock-badge">In Stock</span>
+                    </div>
+                    <div class="prod-card-body">
+                        <h4>Desk Accessories</h4>
+                        <p>Staplers, punching machines, calculators, paper cutters, scissors, sticky notes &amp; dispensers.</p>
+                        <div class="prod-tags">
+                            <span class="prod-tag">Kangaro</span>
+                            <span class="prod-tag">Casio</span>
+                            <span class="prod-tag">3M Post-it</span>
+                        </div>
+                    </div>
+                    <div class="prod-card-footer">
+                        <span class="prod-price-text">Direct Store Price</span>
+                        <a href="https://wa.me/919820490779?text=Hello%20Dharmendra%20ji,%20I%20need%20Desk%20Accessories" class="btn-card-enquire" target="_blank">&#128172; Enquire</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. School & Education -->
+        <section class="cat-section" id="school">
+            <div class="cat-header cat-header-school">
+                <div class="cat-header-left">
+                    <div class="cat-badge-avatar">&#127979;</div>
+                    <div class="cat-header-text">
+                        <h3>School &amp; Student Supplies</h3>
+                        <p>Notebooks, registers, exam kits, craft materials &amp; school bags</p>
+                    </div>
+                </div>
+                <span class="cat-tag-pill" style="color:#be123c;background:#fff1f2;border-color:#fecdd3;">All School Standards</span>
+            </div>
+            <div class="products-grid">
+                <div class="prod-card">
+                    <div class="prod-card-top">
+                        <div class="prod-squircle-icon icon-school"><span class="material-icons-outlined">auto_stories</span></div>
+                        <span class="prod-stock-badge">In Stock</span>
+                    </div>
+                    <div class="prod-card-body">
+                        <h4>Notebooks &amp; Registers</h4>
+                        <p>Single line, four line, square, drawing books, long books, registers &amp; spiral pads.</p>
+                        <div class="prod-tags">
+                            <span class="prod-tag">Classmate</span>
+                            <span class="prod-tag">Navneet</span>
+                            <span class="prod-tag">Sundaram</span>
+                        </div>
+                    </div>
+                    <div class="prod-card-footer">
+                        <span class="prod-price-text">Discount on MRP</span>
+                        <a href="https://wa.me/919820490779?text=Hello%20Dharmendra%20ji,%20I%20need%20School%20Notebooks" class="btn-card-enquire" target="_blank">&#128172; Enquire</a>
+                    </div>
+                </div>
+
+                <div class="prod-card">
+                    <div class="prod-card-top">
+                        <div class="prod-squircle-icon icon-school"><span class="material-icons-outlined">palette</span></div>
+                        <span class="prod-stock-badge">In Stock</span>
+                    </div>
+                    <div class="prod-card-body">
+                        <h4>Art &amp; Craft Materials</h4>
+                        <p>Poster colors, sketch pens, acrylic paints, paintbrushes, clay, craft papers &amp; origami.</p>
+                        <div class="prod-tags">
+                            <span class="prod-tag">Camlin</span>
+                            <span class="prod-tag">Doms</span>
+                            <span class="prod-tag">Faber-Castell</span>
+                        </div>
+                    </div>
+                    <div class="prod-card-footer">
+                        <span class="prod-price-text">Complete Range</span>
+                        <a href="https://wa.me/919820490779?text=Hello%20Dharmendra%20ji,%20I%20need%20Art%20and%20Craft%20supplies" class="btn-card-enquire" target="_blank">&#128172; Enquire</a>
+                    </div>
+                </div>
+
+                <div class="prod-card">
+                    <div class="prod-card-top">
+                        <div class="prod-squircle-icon icon-school"><span class="material-icons-outlined">square_foot</span></div>
+                        <span class="prod-stock-badge">In Stock</span>
+                    </div>
+                    <div class="prod-card-body">
+                        <h4>Geometry &amp; Math Kits</h4>
+                        <p>Geometry boxes, compass, protractor, scales, engineering templates &amp; graph papers.</p>
+                        <div class="prod-tags">
+                            <span class="prod-tag">Camlin</span>
+                            <span class="prod-tag">Maped</span>
+                            <span class="prod-tag">Stainless Scales</span>
+                        </div>
+                    </div>
+                    <div class="prod-card-footer">
+                        <span class="prod-price-text">Exam Sets</span>
+                        <a href="https://wa.me/919820490779?text=Hello%20Dharmendra%20ji,%20I%20need%20Geometry%20Kits" class="btn-card-enquire" target="_blank">&#128172; Enquire</a>
+                    </div>
+                </div>
+
+                <div class="prod-card">
+                    <div class="prod-card-top">
+                        <div class="prod-squircle-icon icon-school"><span class="material-icons-outlined">backpack</span></div>
+                        <span class="prod-stock-badge">In Stock</span>
+                    </div>
+                    <div class="prod-card-body">
+                        <h4>School Bags &amp; Pouches</h4>
+                        <p>Backpacks, pouches, pencil boxes, water bottles &amp; tiffin boxes for nursery to college.</p>
+                        <div class="prod-tags">
+                            <span class="prod-tag">Durable Bags</span>
+                            <span class="prod-tag">Pouches</span>
+                            <span class="prod-tag">Water Bottles</span>
+                        </div>
+                    </div>
+                    <div class="prod-card-footer">
+                        <span class="prod-price-text">Latest Designs</span>
+                        <a href="https://wa.me/919820490779?text=Hello%20Dharmendra%20ji,%20I%20need%20School%20Bags" class="btn-card-enquire" target="_blank">&#128172; Enquire</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Toys & Kids Corner -->
+        <section class="cat-section" id="toys">
+            <div class="cat-header cat-header-toys">
+                <div class="cat-header-left">
+                    <div class="cat-badge-avatar">&#129960;</div>
+                    <div class="cat-header-text">
+                        <h3>Kids Corner, Toys &amp; Gifts</h3>
+                        <p>Board games, puzzles, return gifts &amp; celebration novelty items</p>
+                    </div>
+                </div>
+                <span class="cat-tag-pill" style="color:#b45309;background:#fffbeb;border-color:#fde68a;">Birthday Return Gifts</span>
+            </div>
+            <div class="products-grid">
+                <div class="prod-card">
+                    <div class="prod-card-top">
+                        <div class="prod-squircle-icon icon-toys"><span class="material-icons-outlined">casino</span></div>
+                        <span class="prod-stock-badge">In Stock</span>
+                    </div>
+                    <div class="prod-card-body">
+                        <h4>Board Games &amp; Puzzles</h4>
+                        <p>Ludo, Chess, Carrom, Scrabble, Business, jigsaw puzzles and brain development games.</p>
+                        <div class="prod-tags">
+                            <span class="prod-tag">Chess</span>
+                            <span class="prod-tag">Ludo</span>
+                            <span class="prod-tag">Carrom</span>
+                        </div>
+                    </div>
+                    <div class="prod-card-footer">
+                        <span class="prod-price-text">All Ages</span>
+                        <a href="https://wa.me/919820490779?text=Hello%20Dharmendra%20ji,%20I%20need%20Board%20Games" class="btn-card-enquire" target="_blank">&#128172; Enquire</a>
+                    </div>
+                </div>
+
+                <div class="prod-card">
+                    <div class="prod-card-top">
+                        <div class="prod-squircle-icon icon-toys"><span class="material-icons-outlined">extension</span></div>
+                        <span class="prod-stock-badge">In Stock</span>
+                    </div>
+                    <div class="prod-card-body">
+                        <h4>Educational &amp; STEM Toys</h4>
+                        <p>Building blocks, alphabet &amp; math puzzle mats, science kits &amp; learning flash cards.</p>
+                        <div class="prod-tags">
+                            <span class="prod-tag">Building Blocks</span>
+                            <span class="prod-tag">Puzzle Mats</span>
+                            <span class="prod-tag">Safe Material</span>
+                        </div>
+                    </div>
+                    <div class="prod-card-footer">
+                        <span class="prod-price-text">Learning Kits</span>
+                        <a href="https://wa.me/919820490779?text=Hello%20Dharmendra%20ji,%20I%20need%20Educational%20Toys" class="btn-card-enquire" target="_blank">&#128172; Enquire</a>
+                    </div>
+                </div>
+
+                <div class="prod-card">
+                    <div class="prod-card-top">
+                        <div class="prod-squircle-icon icon-toys"><span class="material-icons-outlined">redeem</span></div>
+                        <span class="prod-stock-badge">In Stock</span>
+                    </div>
+                    <div class="prod-card-body">
+                        <h4>Soft Toys &amp; Return Gifts</h4>
+                        <p>Plush teddy bears, stuffed animals, birthday party return gift sets &amp; novelty stationery.</p>
+                        <div class="prod-tags">
+                            <span class="prod-tag">Teddy Bears</span>
+                            <span class="prod-tag">Gift Sets</span>
+                            <span class="prod-tag">Bulk Discounts</span>
+                        </div>
+                    </div>
+                    <div class="prod-card-footer">
+                        <span class="prod-price-text">Wholesale Packs</span>
+                        <a href="https://wa.me/919820490779?text=Hello%20Dharmendra%20ji,%20I%20need%20Birthday%20Return%20Gifts" class="btn-card-enquire" target="_blank">&#128172; Enquire</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Computer & Tech -->
+        <section class="cat-section" id="computer">
+            <div class="cat-header cat-header-computer">
+                <div class="cat-header-left">
+                    <div class="cat-badge-avatar">&#128187;</div>
+                    <div class="cat-header-text">
+                        <h3>Computer, Printers &amp; Tech Accessories</h3>
+                        <p>Toners, cartridges, keyboard, mouse, storage devices &amp; lamination</p>
+                    </div>
+                </div>
+                <span class="cat-tag-pill" style="color:#15803d;background:#f0fdf4;border-color:#bbf7d0;">Original &amp; Compatible</span>
+            </div>
+            <div class="products-grid">
+                <div class="prod-card">
+                    <div class="prod-card-top">
+                        <div class="prod-squircle-icon icon-tech"><span class="material-icons-outlined">print</span></div>
+                        <span class="prod-stock-badge">In Stock</span>
+                    </div>
+                    <div class="prod-card-body">
+                        <h4>Toner Cartridges &amp; Inks</h4>
+                        <p>Original and compatible toner cartridges for HP, Canon, Epson, Ricoh &amp; Konica Minolta.</p>
+                        <div class="prod-tags">
+                            <span class="prod-tag">HP</span>
+                            <span class="prod-tag">Canon</span>
+                            <span class="prod-tag">Ricoh</span>
+                            <span class="prod-tag">Epson</span>
+                        </div>
+                    </div>
+                    <div class="prod-card-footer">
+                        <span class="prod-price-text">Best Price Guarantee</span>
+                        <a href="https://wa.me/919820490779?text=Hello%20Dharmendra%20ji,%20I%20need%20Toner%20Cartridges" class="btn-card-enquire" target="_blank">&#128172; Enquire</a>
+                    </div>
+                </div>
+
+                <div class="prod-card">
+                    <div class="prod-card-top">
+                        <div class="prod-squircle-icon icon-tech"><span class="material-icons-outlined">mouse</span></div>
+                        <span class="prod-stock-badge">In Stock</span>
+                    </div>
+                    <div class="prod-card-body">
+                        <h4>Keyboard, Mouse &amp; Cables</h4>
+                        <p>Wired and wireless keyboard-mouse combos, HDMI cables, USB hubs, LAN patch cables.</p>
+                        <div class="prod-tags">
+                            <span class="prod-tag">Logitech</span>
+                            <span class="prod-tag">Dell</span>
+                            <span class="prod-tag">Zebronics</span>
+                        </div>
+                    </div>
+                    <div class="prod-card-footer">
+                        <span class="prod-price-text">With Warranty</span>
+                        <a href="https://wa.me/919820490779?text=Hello%20Dharmendra%20ji,%20I%20need%20Computer%20Accessories" class="btn-card-enquire" target="_blank">&#128172; Enquire</a>
+                    </div>
+                </div>
+
+                <div class="prod-card">
+                    <div class="prod-card-top">
+                        <div class="prod-squircle-icon icon-tech"><span class="material-icons-outlined">storage</span></div>
+                        <span class="prod-stock-badge">In Stock</span>
+                    </div>
+                    <div class="prod-card-body">
+                        <h4>Storage Devices &amp; Media</h4>
+                        <p>Pen drives (16GB - 128GB), external hard disks, memory cards &amp; USB storage drives.</p>
+                        <div class="prod-tags">
+                            <span class="prod-tag">SanDisk</span>
+                            <span class="prod-tag">Kingston</span>
+                            <span class="prod-tag">Seagate</span>
+                        </div>
+                    </div>
+                    <div class="prod-card-footer">
+                        <span class="prod-price-text">High Speed</span>
+                        <a href="https://wa.me/919820490779?text=Hello%20Dharmendra%20ji,%20I%20need%20Storage%20Devices" class="btn-card-enquire" target="_blank">&#128172; Enquire</a>
+                    </div>
+                </div>
+
+                <div class="prod-card">
+                    <div class="prod-card-top">
+                        <div class="prod-squircle-icon icon-tech"><span class="material-icons-outlined">layers</span></div>
+                        <span class="prod-stock-badge">In Stock</span>
+                    </div>
+                    <div class="prod-card-body">
+                        <h4>Spiral &amp; Lamination Materials</h4>
+                        <p>Lamination pouches (ID card to A3 size), spiral coils, wiro rings &amp; transparent covers.</p>
+                        <div class="prod-tags">
+                            <span class="prod-tag">Lamination Sheets</span>
+                            <span class="prod-tag">Spiral Coils</span>
+                            <span class="prod-tag">Wiro</span>
+                        </div>
+                    </div>
+                    <div class="prod-card-footer">
+                        <span class="prod-price-text">Wholesale Packs</span>
+                        <a href="https://wa.me/919820490779?text=Hello%20Dharmendra%20ji,%20I%20need%20Lamination%20and%20Spiral%20Materials" class="btn-card-enquire" target="_blank">&#128172; Enquire</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Housekeeping -->
+        <section class="cat-section" id="housekeeping">
+            <div class="cat-header cat-header-hk">
+                <div class="cat-header-left">
+                    <div class="cat-badge-avatar">&#129529;</div>
+                    <div class="cat-header-text">
+                        <h3>Corporate Housekeeping &amp; Pantry Supplies</h3>
+                        <p>Disinfectants, hand wash, tissue papers, trash bags &amp; cleaning chemicals</p>
+                    </div>
+                </div>
+                <span class="cat-tag-pill" style="color:#475569;background:#f8fafc;border-color:#cbd5e1;">5L Cans &amp; Bulk Cartons</span>
+            </div>
+            <div class="products-grid">
+                <div class="prod-card">
+                    <div class="prod-card-top">
+                        <div class="prod-squircle-icon icon-hk"><span class="material-icons-outlined">sanitizer</span></div>
+                        <span class="prod-stock-badge">In Stock</span>
+                    </div>
+                    <div class="prod-card-body">
+                        <h4>Cleaning Liquids &amp; Floor Cleaners</h4>
+                        <p>Floor cleaners, surface disinfectants, glass cleaners, toilet cleaners &amp; sanitizers in 5L cans.</p>
+                        <div class="prod-tags">
+                            <span class="prod-tag">Lizol</span>
+                            <span class="prod-tag">Harpic</span>
+                            <span class="prod-tag">Collin</span>
+                            <span class="prod-tag">5L Packs</span>
+                        </div>
+                    </div>
+                    <div class="prod-card-footer">
+                        <span class="prod-price-text">Institutional Bulk</span>
+                        <a href="https://wa.me/919820490779?text=Hello%20Dharmendra%20ji,%20I%20need%20Housekeeping%20Cleaning%20Liquids" class="btn-card-enquire" target="_blank">&#128172; Enquire</a>
+                    </div>
+                </div>
+
+                <div class="prod-card">
+                    <div class="prod-card-top">
+                        <div class="prod-squircle-icon icon-hk"><span class="material-icons-outlined">clean_hands</span></div>
+                        <span class="prod-stock-badge">In Stock</span>
+                    </div>
+                    <div class="prod-card-body">
+                        <h4>Tissue Papers &amp; Dispensers</h4>
+                        <p>M-Fold tissues, C-fold towels, toilet rolls, facial tissue boxes &amp; automated dispensers.</p>
+                        <div class="prod-tags">
+                            <span class="prod-tag">M-Fold</span>
+                            <span class="prod-tag">Toilet Rolls</span>
+                            <span class="prod-tag">Carton Packing</span>
+                        </div>
+                    </div>
+                    <div class="prod-card-footer">
+                        <span class="prod-price-text">Corporate Supply</span>
+                        <a href="https://wa.me/919820490779?text=Hello%20Dharmendra%20ji,%20I%20need%20Tissue%20Papers%20for%20Office" class="btn-card-enquire" target="_blank">&#128172; Enquire</a>
+                    </div>
+                </div>
+
+                <div class="prod-card">
+                    <div class="prod-card-top">
+                        <div class="prod-squircle-icon icon-hk"><span class="material-icons-outlined">delete_outline</span></div>
+                        <span class="prod-stock-badge">In Stock</span>
+                    </div>
+                    <div class="prod-card-body">
+                        <h4>Garbage Bags &amp; Dustbins</h4>
+                        <p>Heavy duty black and coloured bio-hazard trash bags in small, medium, large and XL sizes.</p>
+                        <div class="prod-tags">
+                            <span class="prod-tag">Heavy Duty</span>
+                            <span class="prod-tag">All Sizes</span>
+                            <span class="prod-tag">Direct Bulk</span>
+                        </div>
+                    </div>
+                    <div class="prod-card-footer">
+                        <span class="prod-price-text">Economy Packs</span>
+                        <a href="https://wa.me/919820490779?text=Hello%20Dharmendra%20ji,%20I%20need%20Garbage%20Bags" class="btn-card-enquire" target="_blank">&#128172; Enquire</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <div class="products-cta">
+            <h3>&#128222; Need a Customized Bulk Quote or Specific Brand?</h3>
+            <p>We supply any customized stationery, paper quantity or xerox machines across MIDC &amp; Mumbai.</p>
+            <a href="contact.html" class="btn-cta">&#128172; Contact: Dharmendra (9820490779) &bull; Shubham (9324290047)</a>
+        </div>
+
+    </div>
+
+    <script>
+        document.querySelectorAll('.cat-nav a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                document.querySelectorAll('.cat-nav a').forEach(a => a.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+        const sections = document.querySelectorAll('.cat-section');
+        const navLinks = document.querySelectorAll('.cat-nav a');
+        const obs = new IntersectionObserver(entries => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    navLinks.forEach(l => {
+                        l.classList.remove('active');
+                        if (l.getAttribute('href') === '#' + e.target.id) {
+                            l.classList.add('active');
+                        }
+                    });
+                }
+            });
+        }, { threshold: 0.25 });
+        sections.forEach(s => obs.observe(s));
+    </script>
 
     <footer>
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col">
-                    <h4>Pooja Computers & Stationery</h4>
-                    <p>Complete Office, School & Daily Essentials Store providing quality products and services.</p>
+                    <h4>Pooja Computers &amp; Stationery</h4>
+                    <p>Complete Office, School &amp; Daily Essentials Store providing quality products and services in Andheri East, Mumbai.</p>
                 </div>
                 <div class="footer-col">
                     <h4>Quick Links</h4>
                     <ul class="footer-links">
                         <li><a href="index.html">Home</a></li>
-                        <li><a href="products.html">Products & Essentials</a></li>
-                        <li><a href="services.html">Printing Services</a></li>
+                        <li><a href="products.html">Products &amp; Essentials</a></li>
+                        <li><a href="services.html">Xerox Machine Rental</a></li>
                         <li><a href="bulk-supply.html">Corporate Supply</a></li>
                         <li><a href="reviews.html">Reviews</a></li>
                         <li><a href="contact.html">Contact Us</a></li>
@@ -264,29 +900,26 @@
                 <div class="footer-col">
                     <h4>Contact Us</h4>
                     <ul class="contact-info">
-                        <li>📍 Shop No. 15, PKT-5, Bldg No. 2, Behind Akruti Star, MIDC Andheri East, Mumbai-93</li>
-                        <li>📞 9820490779 (Dharmendra Yadav)</li>
-                        <li>✉️ poojacomputersstationery@gmail.com</li>
+                        <li>&#128205; Shop No. 15, PKT-5, Bldg No. 2, Behind Akruti Star, MIDC Andheri East, Mumbai&ndash;400093</li>
+                        <li>&#128222; <a href="tel:9820490779">9820490779</a> (Dharmendra Yadav)</li>
+                        <li>&#128222; <a href="tel:9324290047">9324290047</a> (Shubham Yadav)</li>
+                        <li>&#9993; poojacomputersstationery@gmail.com</li>
                     </ul>
                 </div>
             </div>
             <div class="bottom-bar">
-                <p>© 2026 Pooja Computers & Stationery. All Rights Reserved.</p>
+                <p>&copy; 2026 Pooja Computers &amp; Stationery. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
 
     <div class="mobile-bottom-nav">
         <div class="mobile-nav-grid">
-            <a href="tel:9820490779" class="mobile-nav-item" style="color: var(--primary-color);"><span>📞</span>
-                Call</a>
-            <a href="https://wa.me/919820490779" class="mobile-nav-item" style="color: #25D366;"><span>💬</span>
-                WhatsApp</a>
-            <a href="https://maps.google.com/?q=Pooja+Computers+Andheri+East" target="_blank" class="mobile-nav-item"
-                style="color: var(--secondary-color);"><span>📍</span> Map</a>
+            <a href="tel:9820490779" class="mobile-nav-item" style="color:var(--primary);"><span>&#128222;</span>Call</a>
+            <a href="https://wa.me/919820490779" class="mobile-nav-item" style="color:#25D366;"><span>&#128172;</span>WhatsApp</a>
+            <a href="https://maps.google.com/?q=Pooja+Computers+Andheri+East" target="_blank" class="mobile-nav-item" style="color:var(--secondary);"><span>&#128205;</span>Map</a>
         </div>
     </div>
     <script src="js/main.js"></script>
 </body>
-
 </html>

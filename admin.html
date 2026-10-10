@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Store Admin Panel | Pooja Computers & Stationery</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        :root {
+            --admin-bg: #f5f7fb;
+            --admin-card: #ffffff;
+            --admin-border: #e2e8f0;
+            --admin-primary: #1976d2;
+            --admin-success: #10b981;
+            --admin-warning: #f59e0b;
+            --admin-danger: #ef4444;
+        }
+
+        body {
+            background-color: var(--admin-bg);
+            font-family: 'Inter', sans-serif;
+            color: #334155;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* ── Login Screen Gate ── */
+        #loginScreen {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #e8f4fd 0%, #f0faf0 100%);
+            padding: 20px;
+        }
+
+        .login-card {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 38px 32px;
+            max-width: 400px;
+            width: 100%;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+            border: 1px solid var(--admin-border);
+            text-align: center;
+        }
+
+        .login-card img {
+            height: 60px;
+            width: auto;
+            margin-bottom: 14px;
+        }
+
+        .login-card h2 {
+            font-size: 1.25rem;
+            color: #1e293b;
+            margin-bottom: 6px;
+        }
+
+        .login-card p {
+            color: #64748b;
+            font-size: 0.86rem;
+            margin-bottom: 22px;
+        }
+
+        /* ── Dashboard Layout ── */
+        #adminDashboard {
+            display: none;
+        }
+
+        .admin-nav {
+            background: #ffffff;
+            border-bottom: 1px solid var(--admin-border);
+            padding: 14px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .admin-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: #1e293b;
+        }
+
+        .admin-brand img {
+            height: 42px;
+            width: auto;
+        }
+
+        .admin-nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .btn-sm {
+            padding: 6px 14px;
+            font-size: 0.84rem;
+            border-radius: 8px;
+            cursor: pointer;
+            border: 1px solid transparent;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .btn-outline {
+            background: #fff;
+            border-color: var(--admin-border);
+            color: #475569;
+        }
+
+        .btn-outline:hover {
+            background: #f1f5f9;
+        }
+
+        .btn-danger-outline {
+            background: #fff;
+            border-color: #fecaca;
+            color: #ef4444;
+        }
+
+        .btn-danger-outline:hover {
+            background: #fef2f2;
+        }
+
+        .admin-container {
+            max-width: 1200px;
+            margin: 24px auto;
+            padding: 0 20px;
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 18px;
+            margin-bottom: 24px;
+        }
+
+        .stat-card {
+            background: var(--admin-card);
+            border: 1px solid var(--admin-border);
+            border-radius: 12px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+        }
+
+        .stat-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+
+        .stat-icon.blue { background: #e0f2fe; color: #0284c7; }
+        .stat-icon.orange { background: #fef3c7; color: #d97706; }
+        .stat-icon.green { background: #dcfce7; color: #16a34a; }
+        .stat-icon.purple { background: #ede9fe; color: #7c3aed; }
+
+        .stat-val {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: #0f172a;
+            line-height: 1.1;
+        }
+
+        .stat-label {
+            font-size: 0.82rem;
+            color: #64748b;
+            font-weight: 500;
+            margin-top: 3px;
+        }
+
+        /* Tab Controls */
+        .tab-bar {
+            display: flex;
+            gap: 8px;
+            border-bottom: 1px solid var(--admin-border);
+            margin-bottom: 24px;
+        }
+
+        .tab-btn {
+            background: none;
+            border: none;
+            padding: 12px 20px;
+            font-size: 0.92rem;
+            font-weight: 600;
+            color: #64748b;
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.2s;
+        }
+
+        .tab-btn.active {
+            color: var(--admin-primary);
+            border-bottom-color: var(--admin-primary);
+            background: rgba(25, 118, 210, 0.04);
+            border-radius: 8px 8px 0 0;
+        }
+
+        /* Card Section */
+        .section-box {
+            background: var(--admin-card);
+            border: 1px solid var(--admin-border);
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+            margin-bottom: 28px;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 18px;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .section-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Tables & Lists */
+        .table-responsive {
+            overflow-x: auto;
+        }
+
+        table.admin-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.88rem;
+            text-align: left;
+        }
+
+        table.admin-table th {
+            background: #f8fafc;
+            color: #475569;
+            padding: 12px 14px;
+            font-weight: 600;
+            border-bottom: 1px solid var(--admin-border);
+        }
+
+        table.admin-table td {
+            padding: 14px;
+            border-bottom: 1px solid var(--admin-border);
+            vertical-align: top;
+        }
+
+        table.admin-table tr:hover {
+            background: #fbfcfe;
+        }
+
+        /* Badges */
+        .badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.74rem;
+            font-weight: 600;
+            text-transform: capitalize;
+        }
+
+        .badge-pending { background: #fef3c7; color: #b45309; }
+        .badge-contacted { background: #e0f2fe; color: #0369a1; }
+        .badge-completed { background: #dcfce7; color: #15803d; }
+        .badge-approved { background: #dcfce7; color: #15803d; }
+
+        .btn-action {
+            padding: 4px 10px;
+            border-radius: 6px;
+            border: 1px solid var(--admin-border);
+            background: #fff;
+            color: #334155;
+            font-size: 0.78rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .btn-action:hover { background: #f1f5f9; }
+        .btn-whatsapp-sm { background: #25d366; color: #fff; border-color: #25d366; }
+        .btn-whatsapp-sm:hover { background: #1ebc59; color: #fff; }
+        .btn-danger-sm { color: #ef4444; border-color: #fca5a5; background: #fff5f5; }
+        .btn-danger-sm:hover { background: #fee2e2; }
+
+        /* Modal */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(15, 23, 42, 0.45);
+            backdrop-filter: blur(3px);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-overlay.active { display: flex; }
+        .modal-box {
+            background: #fff;
+            border-radius: 14px;
+            max-width: 520px;
+            width: 90%;
+            padding: 26px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .modal-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 18px;
+        }
+
+        .modal-header h3 { margin: 0; font-size: 1.15rem; color: #1e293b; }
+        .modal-close { background: none; border: none; font-size: 1.4rem; cursor: pointer; color: #94a3b8; }
+
+        .form-group { margin-bottom: 14px; }
+        .form-group label { display: block; font-size: 0.84rem; font-weight: 600; margin-bottom: 6px; color: #334155; }
+        .form-control {
+            width: 100%;
+            padding: 9px 12px;
+            border-radius: 8px;
+            border: 1px solid var(--admin-border);
+            font-family: inherit;
+            font-size: 0.88rem;
+            box-sizing: border-box;
+        }
+        .form-control:focus { outline: none; border-color: var(--admin-primary); }
+
+        #toast {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            padding: 12px 20px;
+            background: #1e293b;
+            color: #fff;
+            border-radius: 8px;
+            font-size: 0.88rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            display: none;
+            z-index: 2000;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1. AUTHENTICATION GATE (ONLY STORE ADMIN CAN ACCESS) -->
+    <div id="loginScreen">
+        <div class="login-card">
+            <img src="assets/images/logo.png" alt="Logo">
+            <h2>Pooja Computers Admin</h2>
+            <p>Enter the store admin passcode to manage enquiries, products &amp; reviews.</p>
+            <form onsubmit="handleLogin(event)">
+                <div class="form-group" style="text-align:left;">
+                    <label>Admin Passcode</label>
+                    <input type="password" id="adminPasswordInput" class="form-control" placeholder="Enter password (default: pooja@2026)" required autofocus>
+                </div>
+                <div id="loginErrorMsg" style="display:none;color:#ef4444;font-size:0.84rem;margin-bottom:12px;font-weight:600;">
+                    ❌ Incorrect password. Please try again.
+                </div>
+                <button type="submit" class="btn btn-primary" style="width:100%;padding:10px;font-weight:700;">
+                    Unlock Dashboard
+                </button>
+            </form>
+            <div style="margin-top:20px;">
+                <a href="index.html" style="font-size:0.82rem;color:#64748b;text-decoration:none;">&larr; Back to Website</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2. PROTECTED ADMIN DASHBOARD -->
+    <div id="adminDashboard">
+        <!-- Top Nav -->
+        <nav class="admin-nav">
+            <div class="admin-brand">
+                <img src="assets/images/logo.png" alt="Logo">
+                <span>Pooja Computers &bull; Store Admin</span>
+            </div>
+            <div class="admin-nav-actions">
+                <span id="dbBadge" style="display:inline-flex;align-items:center;gap:6px;font-size:0.8rem;color:#16a34a;background:#dcfce7;padding:4px 12px;border-radius:20px;font-weight:600;">
+                    <span style="width:8px;height:8px;background:#16a34a;border-radius:50%;"></span>
+                    <span id="dbName">Connecting...</span>
+                </span>
+                <a href="index.html" class="btn-sm btn-outline" target="_blank">
+                    <span class="material-icons-outlined" style="font-size:16px;">launch</span> View Website
+                </a>
+                <button onclick="handleLogout()" class="btn-sm btn-danger-outline">
+                    <span class="material-icons-outlined" style="font-size:16px;">lock</span> Log Out
+                </button>
+            </div>
+        </nav>
+
+        <div class="admin-container">
+            <!-- Stats Row -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon orange">
+                        <span class="material-icons-outlined">mail</span>
+                    </div>
+                    <div>
+                        <div class="stat-val" id="statPendingEnquiries">0</div>
+                        <div class="stat-label">Pending Enquiries</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon blue">
+                        <span class="material-icons-outlined">inbox</span>
+                    </div>
+                    <div>
+                        <div class="stat-val" id="statTotalEnquiries">0</div>
+                        <div class="stat-label">Total Enquiries</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon green">
+                        <span class="material-icons-outlined">inventory_2</span>
+                    </div>
+                    <div>
+                        <div class="stat-val" id="statTotalProducts">0</div>
+                        <div class="stat-label">Live Products</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon purple">
+                        <span class="material-icons-outlined">star</span>
+                    </div>
+                    <div>
+                        <div class="stat-val" id="statTotalReviews">0</div>
+                        <div class="stat-label">Customer Reviews</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab Controls -->
+            <div class="tab-bar">
+                <button class="tab-btn active" onclick="switchTab('enquiries')">
+                    <span class="material-icons-outlined" style="font-size:18px;">mail</span> Enquiries Inbox
+                </button>
+                <button class="tab-btn" onclick="switchTab('products')">
+                    <span class="material-icons-outlined" style="font-size:18px;">category</span> Products Catalog
+                </button>
+                <button class="tab-btn" onclick="switchTab('reviews')">
+                    <span class="material-icons-outlined" style="font-size:18px;">rate_review</span> Customer Reviews
+                </button>
+            </div>
+
+            <!-- TAB 1: Enquiries -->
+            <div id="tab-enquiries" class="tab-content">
+                <div class="section-box">
+                    <div class="section-header">
+                        <h2 class="section-title">
+                            <span class="material-icons-outlined" style="color:var(--admin-primary)">mark_email_unread</span>
+                            Customer &amp; Rental Enquiries
+                        </h2>
+                        <div>
+                            <select id="filterEnquiryStatus" class="form-control" style="width:auto;display:inline-block;" onchange="loadEnquiries()">
+                                <option value="">All Statuses</option>
+                                <option value="pending">Pending Only</option>
+                                <option value="contacted">Contacted</option>
+                                <option value="completed">Completed</option>
+                            </select>
+                            <button class="btn-sm btn-outline" onclick="loadEnquiries()" style="margin-left:8px;">
+                                <span class="material-icons-outlined" style="font-size:16px;">refresh</span> Refresh
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="table-responsive">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Customer Name</th>
+                                    <th>Phone &amp; WhatsApp</th>
+                                    <th>Service / Need</th>
+                                    <th>Requirement Details</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="enquiriesTableBody">
+                                <tr><td colspan="7" style="text-align:center;padding:24px;color:#94a3b8;">Loading enquiries...</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 2: Products -->
+            <div id="tab-products" class="tab-content" style="display:none;">
+                <div class="section-box">
+                    <div class="section-header">
+                        <h2 class="section-title">
+                            <span class="material-icons-outlined" style="color:#16a34a">inventory_2</span>
+                            Product Catalog Management
+                        </h2>
+                        <div>
+                            <select id="filterProductCategory" class="form-control" style="width:auto;display:inline-block;" onchange="loadProducts()">
+                                <option value="">All Categories</option>
+                                <option value="office">Office Supplies</option>
+                                <option value="school">School &amp; Education</option>
+                                <option value="toys">Kids &amp; Toys</option>
+                                <option value="computer">Computer &amp; Xerox</option>
+                                <option value="housekeeping">Housekeeping</option>
+                            </select>
+                            <button class="btn-sm" style="background:var(--admin-primary);color:#fff;margin-left:8px;" onclick="openAddProductModal()">
+                                <span class="material-icons-outlined" style="font-size:16px;">add</span> Add Product
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="table-responsive">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>Category</th>
+                                    <th>Product Name</th>
+                                    <th>Description</th>
+                                    <th>Tags / Brands</th>
+                                    <th>Pricing</th>
+                                    <th>Stock</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="productsTableBody">
+                                <tr><td colspan="7" style="text-align:center;padding:24px;color:#94a3b8;">Loading products...</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 3: Reviews -->
+            <div id="tab-reviews" class="tab-content" style="display:none;">
+                <div class="section-box">
+                    <div class="section-header">
+                        <h2 class="section-title">
+                            <span class="material-icons-outlined" style="color:#7c3aed">stars</span>
+                            Customer Reviews &amp; Testimonials
+                        </h2>
+                        <button class="btn-sm btn-outline" onclick="loadReviews()">
+                            <span class="material-icons-outlined" style="font-size:16px;">refresh</span> Refresh
+                        </button>
+                    </div>
+
+                    <div class="table-responsive">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>Customer Name</th>
+                                    <th>Role / Company</th>
+                                    <th>Rating</th>
+                                    <th>Review Text</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="reviewsTableBody">
+                                <tr><td colspan="6" style="text-align:center;padding:24px;color:#94a3b8;">Loading reviews...</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Product Modal -->
+    <div id="addProductModal" class="modal-overlay">
+        <div class="modal-box">
+            <div class="modal-header">
+                <h3>Add New Product</h3>
+                <button class="modal-close" onclick="closeAddProductModal()">&times;</button>
+            </div>
+            <form id="addProductForm" onsubmit="handleCreateProduct(event)">
+                <div class="form-group">
+                    <label>Category *</label>
+                    <select id="newProdCategory" class="form-control" required>
+                        <option value="office">Office Supplies</option>
+                        <option value="school">School &amp; Education</option>
+                        <option value="toys">Kids &amp; Toys</option>
+                        <option value="computer">Computer &amp; Xerox Supplies</option>
+                        <option value="housekeeping">Housekeeping Supplies</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Product Name *</label>
+                    <input type="text" id="newProdName" class="form-control" placeholder="e.g. Spiral Binding Machine" required>
+                </div>
+                <div class="form-group">
+                    <label>Description</label>
+                    <textarea id="newProdDesc" class="form-control" rows="3" placeholder="Brief details about the item"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Tags / Brands</label>
+                    <input type="text" id="newProdTags" class="form-control" placeholder="e.g. Heavy Duty, 2 Year Warranty">
+                </div>
+                <div class="form-group">
+                    <label>Price or Rate Notice</label>
+                    <input type="text" id="newProdPrice" class="form-control" placeholder="e.g. Wholesale Rates / ₹250">
+                </div>
+                <div class="form-group">
+                    <label>Material Icon Name</label>
+                    <input type="text" id="newProdIcon" class="form-control" value="inventory_2">
+                </div>
+                <div style="display:flex;justify-content:flex-end;gap:10px;margin-top:20px;">
+                    <button type="button" class="btn-sm btn-outline" onclick="closeAddProductModal()">Cancel</button>
+                    <button type="submit" class="btn-sm" style="background:var(--admin-primary);color:#fff;">Save Product</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast"></div>
+
+    <script>
+        // Automatic API Base detection:
+        // If opened as file:// (double clicked from file explorer), use http://localhost:3000
+        // If opened as http://... or on Vercel, use relative paths
+        const API_BASE = (window.location.protocol === 'file:') ? 'http://localhost:3000' : '';
+
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            toast.textContent = message;
+            toast.style.display = 'block';
+            setTimeout(() => { toast.style.display = 'none'; }, 3500);
+        }
+
+        // ── Auth Handling ──
+        function checkAuth() {
+            const token = sessionStorage.getItem('pooja_admin_token');
+            if (token) {
+                document.getElementById('loginScreen').style.display = 'none';
+                document.getElementById('adminDashboard').style.display = 'block';
+                loadStats();
+                loadEnquiries();
+            } else {
+                document.getElementById('loginScreen').style.display = 'flex';
+                document.getElementById('adminDashboard').style.display = 'none';
+            }
+        }
+
+        async function handleLogin(e) {
+            e.preventDefault();
+            const password = document.getElementById('adminPasswordInput').value;
+            const errorMsg = document.getElementById('loginErrorMsg');
+
+            try {
+                const res = await fetch(`${API_BASE}/api/admin/login`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ password })
+                });
+                const data = await res.json();
+                if (data.success) {
+                    sessionStorage.setItem('pooja_admin_token', data.token);
+                    errorMsg.style.display = 'none';
+                    checkAuth();
+                } else {
+                    errorMsg.style.display = 'block';
+                }
+            } catch (err) {
+                // If offline or default passcode match
+                if (password === 'pooja@2026') {
+                    sessionStorage.setItem('pooja_admin_token', 'local_token');
+                    errorMsg.style.display = 'none';
+                    checkAuth();
+                } else {
+                    errorMsg.textContent = '❌ Server offline or incorrect password. Try "pooja@2026"';
+                    errorMsg.style.display = 'block';
+                }
+            }
+        }
+
+        function handleLogout() {
+            sessionStorage.removeItem('pooja_admin_token');
+            checkAuth();
+        }
+
+        function switchTab(tabName) {
+            document.querySelectorAll('.tab-content').forEach(el => el.style.display = 'none');
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            
+            document.getElementById(`tab-${tabName}`).style.display = 'block';
+            event.currentTarget.classList.add('active');
+
+            if (tabName === 'enquiries') loadEnquiries();
+            if (tabName === 'products') loadProducts();
+            if (tabName === 'reviews') loadReviews();
+        }
+
+        // Fetch Dashboard Stats & Live DB Status
+        async function loadStats() {
+            try {
+                const res = await fetch(`${API_BASE}/api/stats`);
+                const data = await res.json();
+                if (data.success) {
+                    document.getElementById('statTotalEnquiries').textContent = data.stats.totalEnquiries;
+                    document.getElementById('statPendingEnquiries').textContent = data.stats.pendingEnquiries;
+                    document.getElementById('statTotalProducts').textContent = data.stats.totalProducts;
+                    document.getElementById('statTotalReviews').textContent = data.stats.totalReviews;
+                    
+                    // Update DB Name
+                    document.getElementById('dbName').textContent = data.dbType + ' Live';
+                }
+            } catch (err) {
+                console.error('Stats error:', err);
+                document.getElementById('dbName').textContent = 'Server Offline';
+            }
+        }
+
+        // ── Enquiries ──
+        async function loadEnquiries() {
+            const statusFilter = document.getElementById('filterEnquiryStatus').value;
+            const url = statusFilter ? `${API_BASE}/api/enquiries?status=${statusFilter}` : `${API_BASE}/api/enquiries`;
+            
+            const tbody = document.getElementById('enquiriesTableBody');
+            tbody.innerHTML = '<tr><td colspan="7" style="text-align:center;padding:24px;color:#94a3b8;">Loading enquiries...</td></tr>';
+
+            try {
+                const res = await fetch(url);
+                const data = await res.json();
+                if (data.success && data.data && data.data.length > 0) {
+                    tbody.innerHTML = data.data.map(enq => {
+                        const date = new Date(enq.created_at).toLocaleDateString('en-IN', { month:'short', day:'numeric', hour:'2-digit', minute:'2-digit' });
+                        const waText = encodeURIComponent(`Hello ${enq.name}, thank you for contacting Pooja Computers & Stationery regarding: ${enq.requirement}`);
+                        return `
+                            <tr>
+                                <td style="white-space:nowrap;font-size:0.8rem;color:#64748b;">${date}</td>
+                                <td><strong>${enq.name}</strong>${enq.email ? `<br><small style="color:#64748b;">${enq.email}</small>` : ''}</td>
+                                <td>
+                                    <div style="font-weight:600;">${enq.phone}</div>
+                                    <div style="margin-top:4px;">
+                                        <a href="https://wa.me/91${enq.phone.replace(/[^0-9]/g, '')}?text=${waText}" target="_blank" class="btn-action btn-whatsapp-sm">
+                                            <span>&#128172;</span> Chat
+                                        </a>
+                                        <a href="tel:${enq.phone}" class="btn-action">
+                                            <span>&#128222;</span> Call
+                                        </a>
+                                    </div>
+                                </td>
+                                <td><span class="badge" style="background:#f1f5f9;color:#334155;">${enq.service_type || 'General'}</span></td>
+                                <td style="max-width:280px;line-height:1.4;">${enq.requirement}</td>
+                                <td>
+                                    <select onchange="updateEnquiryStatus(${enq.id}, this.value)" class="form-control" style="padding:4px 8px;font-size:0.8rem;width:auto;">
+                                        <option value="pending" ${enq.status === 'pending' ? 'selected' : ''}>⏳ Pending</option>
+                                        <option value="contacted" ${enq.status === 'contacted' ? 'selected' : ''}>📞 Contacted</option>
+                                        <option value="completed" ${enq.status === 'completed' ? 'selected' : ''}>✅ Completed</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <button onclick="deleteEnquiry(${enq.id})" class="btn-action btn-danger-sm" title="Delete">
+                                        <span class="material-icons-outlined" style="font-size:16px;">delete</span>
+                                    </button>
+                                </td>
+                            </tr>
+                        `;
+                    }).join('');
+                } else {
+                    tbody.innerHTML = '<tr><td colspan="7" style="text-align:center;padding:24px;color:#94a3b8;">No customer enquiries yet.</td></tr>';
+                }
+            } catch (err) {
+                tbody.innerHTML = `<tr><td colspan="7" style="text-align:center;padding:24px;color:#ef4444;">Could not connect to backend server. Make sure "npm start" is running on port 3000.</td></tr>`;
+            }
+        }
+
+        async function updateEnquiryStatus(id, newStatus) {
+            try {
+                const res = await fetch(`${API_BASE}/api/enquiries/${id}`, {
+                    method: 'PATCH',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ status: newStatus })
+                });
+                const data = await res.json();
+                if (data.success) {
+                    showToast('Enquiry status updated');
+                    loadStats();
+                }
+            } catch (err) {
+                showToast('Error updating status');
+            }
+        }
+
+        async function deleteEnquiry(id) {
+            if (!confirm('Are you sure you want to delete this enquiry?')) return;
+            try {
+                const res = await fetch(`${API_BASE}/api/enquiries/${id}`, { method: 'DELETE' });
+                const data = await res.json();
+                if (data.success) {
+                    showToast('Enquiry deleted');
+                    loadEnquiries();
+                    loadStats();
+                }
+            } catch (err) {
+                showToast('Error deleting enquiry');
+            }
+        }
+
+        // ── Products ──
+        async function loadProducts() {
+            const catFilter = document.getElementById('filterProductCategory').value;
+            const url = catFilter ? `${API_BASE}/api/products?category=${catFilter}` : `${API_BASE}/api/products`;
+            const tbody = document.getElementById('productsTableBody');
+            tbody.innerHTML = '<tr><td colspan="7" style="text-align:center;padding:24px;color:#94a3b8;">Loading products...</td></tr>';
+
+            try {
+                const res = await fetch(url);
+                const data = await res.json();
+                if (data.success && data.data && data.data.length > 0) {
+                    tbody.innerHTML = data.data.map(p => `
+                        <tr>
+                            <td><span class="badge" style="background:#e0f2fe;color:#0369a1;">${p.category}</span></td>
+                            <td><strong>${p.name}</strong></td>
+                            <td style="max-width:260px;font-size:0.83rem;color:#64748b;">${p.description}</td>
+                            <td><small style="color:#475569;">${p.tags || '-'}</small></td>
+                            <td><strong style="color:#16a34a;">${p.price}</strong></td>
+                            <td>
+                                <span class="badge ${p.in_stock ? 'badge-completed' : 'badge-pending'}">
+                                    ${p.in_stock ? 'In Stock' : 'Out of Stock'}
+                                </span>
+                            </td>
+                            <td>
+                                <button onclick="deleteProduct(${p.id})" class="btn-action btn-danger-sm" title="Delete">
+                                    <span class="material-icons-outlined" style="font-size:16px;">delete</span>
+                                </button>
+                            </td>
+                        </tr>
+                    `).join('');
+                } else {
+                    tbody.innerHTML = '<tr><td colspan="7" style="text-align:center;padding:24px;color:#94a3b8;">No products found.</td></tr>';
+                }
+            } catch (err) {
+                tbody.innerHTML = `<tr><td colspan="7" style="text-align:center;padding:24px;color:#ef4444;">Error loading products: ${err.message}</td></tr>`;
+            }
+        }
+
+        function openAddProductModal() {
+            document.getElementById('addProductModal').classList.add('active');
+        }
+
+        function closeAddProductModal() {
+            document.getElementById('addProductModal').classList.remove('active');
+            document.getElementById('addProductForm').reset();
+        }
+
+        async function handleCreateProduct(e) {
+            e.preventDefault();
+            const category = document.getElementById('newProdCategory').value;
+            const name = document.getElementById('newProdName').value;
+            const description = document.getElementById('newProdDesc').value;
+            const tags = document.getElementById('newProdTags').value;
+            const price = document.getElementById('newProdPrice').value;
+            const icon = document.getElementById('newProdIcon').value;
+
+            const colorClassMap = {
+                office: 'ci-blue',
+                school: 'ci-red',
+                toys: 'ci-orange',
+                computer: 'ci-green',
+                housekeeping: 'ci-grey'
+            };
+
+            try {
+                const res = await fetch(`${API_BASE}/api/products`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        category,
+                        name,
+                        description,
+                        tags,
+                        price,
+                        icon,
+                        color_class: colorClassMap[category] || 'ci-blue'
+                    })
+                });
+                const data = await res.json();
+                if (data.success) {
+                    showToast('Product added successfully!');
+                    closeAddProductModal();
+                    loadProducts();
+                    loadStats();
+                }
+            } catch (err) {
+                showToast('Failed to add product');
+            }
+        }
+
+        async function deleteProduct(id) {
+            if (!confirm('Are you sure you want to remove this product?')) return;
+            try {
+                const res = await fetch(`${API_BASE}/api/products/${id}`, { method: 'DELETE' });
+                const data = await res.json();
+                if (data.success) {
+                    showToast('Product deleted');
+                    loadProducts();
+                    loadStats();
+                }
+            } catch (err) {
+                showToast('Failed to delete product');
+            }
+        }
+
+        // ── Reviews ──
+        async function loadReviews() {
+            const tbody = document.getElementById('reviewsTableBody');
+            tbody.innerHTML = '<tr><td colspan="6" style="text-align:center;padding:24px;color:#94a3b8;">Loading reviews...</td></tr>';
+
+            try {
+                const res = await fetch(`${API_BASE}/api/reviews?all=true`);
+                const data = await res.json();
+                if (data.success && data.data && data.data.length > 0) {
+                    tbody.innerHTML = data.data.map(r => `
+                        <tr>
+                            <td><strong>${r.name}</strong></td>
+                            <td style="color:#64748b;">${r.role_company || 'Customer'}</td>
+                            <td><span style="color:#eab308;letter-spacing:2px;">${'★'.repeat(r.rating)}</span> <small>(${r.rating}/5)</small></td>
+                            <td style="max-width:320px;line-height:1.4;">&ldquo;${r.message}&rdquo;</td>
+                            <td><span class="badge badge-approved">${r.status}</span></td>
+                            <td>
+                                <button onclick="deleteReview(${r.id})" class="btn-action btn-danger-sm" title="Delete">
+                                    <span class="material-icons-outlined" style="font-size:16px;">delete</span>
+                                </button>
+                            </td>
+                        </tr>
+                    `).join('');
+                } else {
+                    tbody.innerHTML = '<tr><td colspan="6" style="text-align:center;padding:24px;color:#94a3b8;">No reviews found.</td></tr>';
+                }
+            } catch (err) {
+                tbody.innerHTML = `<tr><td colspan="6" style="text-align:center;padding:24px;color:#ef4444;">Error loading reviews: ${err.message}</td></tr>`;
+            }
+        }
+
+        async function deleteReview(id) {
+            if (!confirm('Are you sure you want to delete this review?')) return;
+            try {
+                const res = await fetch(`${API_BASE}/api/reviews/${id}`, { method: 'DELETE' });
+                const data = await res.json();
+                if (data.success) {
+                    showToast('Review deleted');
+                    loadReviews();
+                    loadStats();
+                }
+            } catch (err) {
+                showToast('Failed to delete review');
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', checkAuth);
+    </script>
+</body>
+</html>
