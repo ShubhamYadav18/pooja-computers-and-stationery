@@ -3,4 +3,4 @@ Allow: /
 Disallow: /admin
 Disallow: /admin.html
 
-Sitemap: https://www.poojacomputersstationery.com/sitemap.xml
+Sitemap: https://poojacomputersstationery.vercel.app/sitemap.xml
