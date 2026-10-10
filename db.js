@@ -135,13 +135,14 @@ async function initSchema() {
         const revCountRes = await dbClient.query('SELECT COUNT(*) as count FROM reviews');
         if (parseInt(revCountRes.rows[0].count, 10) === 0) {
             const seedReviews = [
-                ['Rajesh Kumar', 5, 'Excellent service and quick delivery. I always order my office stationery from here. Highly recommended for corporate supplies.', 'Corporate Client'],
-                ['Priya Sharma', 5, 'One stop shop for all school projects. The staff is very helpful and they have everything my kids need.', 'Parent & Customer'],
-                ['Amit Patel', 4, 'Good quality Xerox and printing services. Very reasonable rates compared to others in Andheri East.', 'Local Business Owner'],
-                ['Suresh Nair', 5, 'Very reliable for bulk orders. We have been purchasing our office housekeeping material and photocopier service from Pooja Computers for 2 years now.', 'Admin Manager, MIDC'],
-                ['Neha Gupta', 5, 'Best place for art supplies. Found all the specific sketching pencils and papers I needed which were not available nearby.', 'Graphic Designer'],
-                ['Rohan Mehta', 5, 'Very friendly behavior by Dharmendra ji. They always guide properly about which product is best for my office requirements.', 'IT Consultant'],
-                ['Sneha Desai', 4, 'Prices are very reasonable compared to online. Plus you get to check the quality before buying. Good variety of pens and registers.', 'Teacher']
+                ['Vikram Salvi', 5, 'Had an urgent internal audit at our MIDC office behind Akruti Star and needed 45 box files, separator sheets, and 20 reams of JK Copier by 11 AM. Called Dharmendra ji, and Shubham delivered everything within 45 minutes on scooter. Lifesaver for our admin team.', 'Admin Head, Logistics Firm (MIDC)'],
+                ['Kavita Chawla', 5, 'We have been renting a heavy-duty Canon photocopier for our branch near Chakala for the past 9 months. Zero breakdown so far, and whenever we WhatsApp them for a toner cartridge refill, it reaches our reception on the same day. Monthly billing is clear with proper GST invoices.', 'Facilities Lead, Tech Park Andheri'],
+                ['Prashant Deshmukh', 5, 'We buy our monthly office housekeeping supplies (Lizol 5L cans, garbage bags, M-Fold tissues, handwash) and stationery in bulk. Rates are competitive compared to wholesale market, and we get prompt delivery at our warehouse doorstep.', 'Operations Manager, Freight Forwarding Co.'],
+                ['Meera Iyer', 5, 'Very honest and polite people. During school reopening in June, getting the exact notebook sizes, graph books, and brown covers for school can be chaotic. Dharmendra bhai had everything packed according to the syllabus list within 10 minutes.', 'Parent, Sher-e-Punjab Colony'],
+                ['Anand Kulkarni', 5, 'Regularly get A3 architectural drawings printed, laminated, and wiro-bound here for client presentations. The print clarity on 100 GSM paper is sharp and the binding holds up well. Much faster turnaround than Xerox shops near the railway station.', 'Architect & Interior Consultant'],
+                ['Harshil Shah', 4, 'Needed an emergency replacement toner cartridge for our HP LaserJet printer on a Saturday evening around 7:30 PM when most shops were closed. Shubham arranged a compatible cartridge immediately so we could finish month-end invoicing.', 'Accountant, Akruti Trade Centre'],
+                ['Ritu Soni', 5, 'Bought birthday return gift sets (fancy art sets and stationery kits) for my son\'s 7th birthday. Dharmendra ji gave reasonable wholesale pricing for 30 packs and helped pack them neatly. Kids loved the gifts.', 'Resident, Poonam Nagar'],
+                ['Sunil Tiwari', 4, 'Good service and fair prices. We do all our tender document Xerox, lamination and spiral binding job work here. Paper quality is always consistent.', 'Contractor & Site Supervisor']
             ];
 
             for (const r of seedReviews) {
